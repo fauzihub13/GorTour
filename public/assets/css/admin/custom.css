@@ -1,0 +1,12 @@
+
+.base64-image {
+    max-width: 272px;
+    max-height: 153px;
+    border-radius: 10px;
+}
+
+.base64-image-thumbnail {
+    max-width: 160px;
+    max-height: 90px;
+    border-radius: 10px;
+}
