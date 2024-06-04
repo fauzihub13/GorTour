@@ -9,24 +9,24 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Ubah Data</title>
+    <title>Tambah Wisata</title>
 
     <!-- Custom fonts for this template -->
-    <link href="{{ asset('library/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css') }}">
+    {{-- <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+
     <!-- Custom styles for this template -->
-    <link href="{{ asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this page -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    {{-- <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> --}}
 
 </head>
 <style>
@@ -62,6 +62,43 @@
         height: auto;
     }
 
+     .upload-box {
+            width: 100px;
+            height: 100px;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden; /* To ensure the image fits within the box */
+        }
+        .upload-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none; /* Hidden by default */
+        }
+        .upload-box::before {
+            content: '+';
+            font-size: 2em;
+            color: #ccc;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .upload-box img.uploaded {
+            display: block; /* Show the image when it is uploaded */
+        }
+
+        .file-inputs-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Spacing between boxes */
+        }
+
+
 
 </style>
 
@@ -75,7 +112,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center"
-                href="#">
+                href="{{ route('wisata.index') }}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-map"></i>
                 </div>
@@ -129,148 +166,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <form class="form-inline">
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                    </form>
-
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-                        <!-- Nav Item - Alerts -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">3+</span>
-                            </a>
-                            <!-- Dropdown - Alerts -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="alertsDropdown">
-                                <h6 class="dropdown-header">
-                                    Alerts Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to
-                                            download!</span>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-success">
-                                            <i class="fas fa-donate text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All
-                                    Alerts</a>
-                            </div>
-                        </li>
-
-                        <!-- Nav Item - Messages -->
-
-
-                        <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Farhan</span>
-                                <img class="img-profile rounded-circle" src="{{ asset('assets/images/undraw_profile.svg')}}">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal"
-                                    data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
-
-                    </ul>
-
-                </nav>
+                @include('layouts.admin-header')
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -281,75 +177,170 @@
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
+                                <?php
+                                    if (isset($dataWisata) && is_array($dataWisata) && !empty($dataWisata)){
+                                        $wisataDB = $dataWisata;
+                                        // echo($wisataDB);
+                                    }
+
+
+                                    else{
+                                        $wisataDB = 0;
+                                    }
+
+
+                                    if ($wisataDB>0){
+                                        $value=$wisataDB[0];
+                                        $subGaleri = ($value->galeri);
+
+
+
+                                ?>
                                 <div class="card-body">
-                                    <form>
+                                    <form action="{{ route('wisata.update', $value->_id) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
                                         <div class="row">
                                             <!-- Detail wo -->
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="nama-">Destinasi</label>
+                                                    <label for="nama- ">Destinasi</label>
                                                     <input type="text" class="form-control" id="nama-k"
-                                                        placeholder="Masukkan nama Destinasi" required>
+                                                        placeholder="Masukkan nama Destinasi" name="nama_wisata" value="{{ $value->nama_wisata }}" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="link-lokasi">Link Lokasi (iframe)</label>
+                                                    <input type="text" class="form-control" name="map_wisata" id="link-lokasi"
+                                                        placeholder="Masukkan link lokasi" value="{{ $value->map_wisata }}"  required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="lokasi-wisata">Lokasi</label>
-                                                    <input type="text" class="form-control" id="lokasi-wisata"
-                                                        placeholder="Masukkan lokasi" required>
+                                                    <textarea class="form-control" id="lokasi" name="lokasi_wisata" rows="3" placeholder="Masukkan detail lokasi" required>{{ $value->lokasi_wisata }}</textarea>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="link-lokasi">Link Lokasi</label>
-                                                    <input type="text" class="form-control" id="link-lokasi"
-                                                        placeholder="Masukkan link lokasi">
-                                                </div>
+
                                                 <div class="form-group">
                                                     <label for="jam-buka">Jam Buka</label>
-                                                    <input type="text" class="form-control" id="jam-buka"
-                                                        placeholder="Masukkan jam buka">
+                                                    <textarea class="form-control" id="jam_buka" name="jam_buka" rows="3" placeholder="Masukkan jam buka"  required>{{ $value->jam_buka }}</textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="harga">Harga</label>
-                                                    <input type="number" class="form-control" id="harga"
-                                                        placeholder="Masukkan harga">
+                                                    <textarea class="form-control" id="harga" name="harga_wisata" rows="3" placeholder="Masukkan daftar harga tiket" required>{{ $value->harga_wisata }}</textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="deskripsi">Deskripsi</label>
+                                                    <textarea class="form-control" id="deskripsi" name="deskripsi_wisata" rows="6" placeholder="Masukkan deskripsi" required>{{ $value->deskripsi_wisata }}</textarea>
                                                 </div>
                                             </div>
                                             <!-- Deskripsi dan Gambar -->
                                             <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="deskripsi">Deskripsi</label>
-                                                    <textarea class="form-control" id="deskripsi" rows="6" placeholder="Masukkan deskripsi"></textarea>
-                                                </div>
+
                                                 <div class="form-group">
                                                     <label for="gambar">Gambar</label>
-                                                    <input type="file" class="form-control-file" id="gambar"
-                                                        accept="image/png, image/jpeg" required>
-                                                    <img class="base64-image" id="image-base64"
-                                                        src="{{ asset('assets/images/emptyImage.png') }}">
-                                                    <input type="hidden" name="gambar_wisata" id="gambar_input">
+                                                    <input type="file" class="form-control-file mb-3" id="gambar_wisata"
+                                                        accept="image/png, image/jpeg" >
+                                                    {{-- <img class="base64-image" id="image-base64"
+                                                        src="{{ asset('assets/images/emptyImage.png') }}"> --}}
+
+                                                        @if (isset($value->gambar_wisata) && is_string($value->gambar_wisata) && strpos($value->gambar_wisata, 'data:image') === 0)
+                                                            <img class="base64-image" id="image-base64" src="{{ $value->gambar_wisata }}">
+                                                        @else
+                                                            <img class="base64-image" id="image-base64" src="{{ asset('assets/images/gortour/emptyImage.png') }}">
+                                                        @endif
+
+                                                    <input type="hidden" name="gambar_wisata" id="gambar_input" value="{{ $value->gambar_wisata }}">
                                                 </div>
+
                                                 <div class="form-group">
-                                                    <label for="gallery">Galeri (max 6 gambar)</label>
-                                                    <input type="file" class="form-control-file" id="gallery1"
-                                                        name="gallery[]" accept="image/png, image/jpeg" required>
-                                                    <input type="file" class="form-control-file mt-2"
-                                                        id="gallery2" name="gallery[]"
-                                                        accept="image/png, image/jpeg">
-                                                    <input type="file" class="form-control-file mt-2"
-                                                        id="gallery3" name="gallery[]"
-                                                        accept="image/png, image/jpeg">
-                                                    <input type="file" class="form-control-file mt-2"
-                                                        id="gallery4" name="gallery[]"
-                                                        accept="image/png, image/jpeg">
-                                                    <input type="file" class="form-control-file mt-2"
-                                                        id="gallery5" name="gallery[]"
-                                                        accept="image/png, image/jpeg">
-                                                    <input type="file" class="form-control-file mt-2"
-                                                        id="gallery6" name="gallery[]"
-                                                        accept="image/png, image/jpeg">
+                                                    <div class="button-container">
+                                                        <label for="gallery">Galeri (Minimal 1 Gambar)</label>
+                                                        {{-- <div class="">
+                                                            <button type="button" id="removeButton" class="btn btn-primary">-</button>
+                                                            <button type="button" id="addButton" class="btn btn-primary">+</button>
+                                                        </div> --}}
+
+                                                    </div>
+                                                    {{-- <div id="fileInputs">
+                                                        <input type="file" class="form-control-file" id="galeri-1" accept="image/png, image/jpeg" required>
+                                                        <input type="hidden" name="galeri-1" id="input-galeri-1">
+                                                    </div> --}}
+
+                                                    <div class="file-inputs-container" id="fileInputs">
+                                                        <div class="mr-1 mb-1">
+                                                            <label class="upload-box" for="galeri-1">
+
+                                                                @if (isset($value->galeri->galeri_1) && is_string($value->galeri->galeri_1) && strpos($value->galeri->galeri_1, 'data:image') === 0)
+                                                                    <img id="image-galeri-1" class="placeholder uploaded" src="{{ $value->galeri->galeri_1 }}" alt="Upload Image">
+                                                                @else
+                                                                    <img id="image-galeri-1" class="placeholder" src="" alt="Upload Image">
+                                                                @endif
+
+                                                            </label>
+                                                            <input type="file" class="form-control-file" id="galeri-1" accept="image/png, image/jpeg" style="display:none" >
+                                                            <input type="hidden" name="galeri-1" id="input-galeri-1" value="{{ $value->galeri->galeri_1}}" >
+                                                        </div>
+                                                        <div class="mr-1 mb-1">
+                                                            <label class="upload-box" for="galeri-2">
+                                                                @if (isset($value->galeri->galeri_2) && is_string($value->galeri->galeri_2) && strpos($value->galeri->galeri_2, 'data:image') === 0)
+                                                                    <img id="image-galeri-2" class="placeholder uploaded" src="{{ $value->galeri->galeri_2 }}" alt="Upload Image">
+                                                                @else
+                                                                    <img id="image-galeri-2" class="placeholder" src="" alt="Upload Image">
+                                                                @endif
+                                                            </label>
+                                                            <input type="file" class="form-control-file" id="galeri-2" accept="image/png, image/jpeg" style="display:none" >
+                                                            <input type="hidden" name="galeri-2" id="input-galeri-2" value="{{ $value->galeri->galeri_2}}">
+                                                        </div>
+                                                        <div class="mr-1 mb-1">
+                                                            <label class="upload-box" for="galeri-3">
+                                                                @if (isset($value->galeri->galeri_3) && is_string($value->galeri->galeri_3) && strpos($value->galeri->galeri_3, 'data:image') === 0)
+                                                                    <img id="image-galeri-3" class="placeholder uploaded" src="{{ $value->galeri->galeri_3 }}" alt="Upload Image">
+                                                                @else
+                                                                    <img id="image-galeri-3" class="placeholder" src="" alt="Upload Image">
+                                                                @endif
+                                                            </label>
+                                                            <input type="file" class="form-control-file" id="galeri-3" accept="image/png, image/jpeg" style="display:none" >
+                                                            <input type="hidden" name="galeri-3" id="input-galeri-3" value="{{ $value->galeri->galeri_3}}">
+                                                        </div>
+                                                        <div class="mr-1 mb-1">
+                                                            <label class="upload-box" for="galeri-4">
+                                                                @if (isset($value->galeri->galeri_4) && is_string($value->galeri->galeri_4) && strpos($value->galeri->galeri_4, 'data:image') === 0)
+                                                                    <img id="image-galeri-4" class="placeholder uploaded" src="{{ $value->galeri->galeri_4}}" alt="Upload Image">
+                                                                @else
+                                                                    <img id="image-galeri-4" class="placeholder" src="" alt="Upload Image">
+                                                                @endif
+                                                            </label>
+                                                            <input type="file" class="form-control-file" id="galeri-4" accept="image/png, image/jpeg" style="display:none" >
+                                                            <input type="hidden" name="galeri-4" id="input-galeri-4" value="{{ $value->galeri->galeri_4}}">
+                                                        </div>
+                                                        <div class="mr-1 mb-1">
+                                                            <label class="upload-box" for="galeri-5">
+                                                                @if (isset($value->galeri->galeri_5) && is_string($value->galeri->galeri_5) && strpos($value->galeri->galeri_5, 'data:image') === 0)
+                                                                    <img id="image-galeri-5" class="placeholder uploaded" src="{{ $value->galeri->galeri_5}}" alt="Upload Image">
+                                                                @else
+                                                                    <img id="image-galeri-5" class="placeholder" src="" alt="Upload Image">
+                                                                @endif
+                                                            </label>
+                                                            <input type="file" class="form-control-file" id="galeri-5" accept="image/png, image/jpeg" style="display:none" >
+                                                            <input type="hidden" name="galeri-5" id="input-galeri-5" value="{{ $value->galeri->galeri_5}}">
+                                                        </div>
+                                                        <div class="mr-1 mb-1">
+                                                            <label class="upload-box" for="galeri-6">
+                                                                @if (isset($value->galeri->galeri_6) && is_string($value->galeri->galeri_6) && strpos($value->galeri->galeri_6, 'data:image') === 0)
+                                                                    <img id="image-galeri-6" class="placeholder uploaded" src="{{ $value->galeri->galeri_6 }}" alt="Upload Image">
+                                                                @else
+                                                                    <img id="image-galeri-6" class="placeholder" src="" alt="Upload Image">
+                                                                @endif
+                                                            </label>
+                                                            <input type="file" class="form-control-file" id="galeri-6" accept="image/png, image/jpeg" style="display:none" >
+                                                            <input type="hidden" name="galeri-6" id="input-galeri-6" value="{{ $value->galeri->galeri_6}}">
+                                                        </div>
+                                                    </div>
+
                                                 </div>
+
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-success btn-custom mr-2">
+                                            <button type="submit" class="btn btn-primary btn-custom mr-2">
                                                 <i class="fas fa-save"></i> Save
                                             </button>
                                             <button type="reset" class="btn btn-secondary btn-custom">
@@ -358,11 +349,18 @@
                                         </div>
                                     </form>
                                 </div>
+                                <?php
+                                    }else{
+
+                                    };
+                                ?>
                                 <!-- Bootstrap JS and dependencies (optional) -->
                             </div>
                         </div>
                     </div>
                 </div>
+
+
 
 
 
@@ -375,14 +373,13 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; GorTour 2024</span>
+                        <span>Copyright &copy; Your Website 2020</span>
                     </div>
                 </div>
             </footer>
             <!-- End of Footer -->
 
         </div>
-        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
@@ -406,7 +403,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="{{ route('login')}}">Logout</a>
+                    <a class="btn btn-primary" href="{{ route('login') }}">Logout</a>
                 </div>
             </div>
         </div>
@@ -421,6 +418,119 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('assets/js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset('assets/js/post_create.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            for (let i = 1; i <= 6; i++) {
+                document.getElementById(`galeri-${i}`).addEventListener('change', async function() {
+                    const file = this.files[0]; // Get the selected file
+                    if (file) {
+                        try {
+                            const base64String = await convertToBase64(file); // Convert file to base64 with compression
+                            document.getElementById(`input-galeri-${i}`).value = base64String;
+                            console.log(document.getElementById(`input-galeri-${i}`).value); // Output the base64 string
+
+                            const img = document.getElementById(`image-galeri-${i}`);
+                            img.src = base64String;
+                            img.classList.add('uploaded');
+                        } catch (error) {
+                            console.error("Error converting file to base64:", error);
+                        }
+                    }
+                });
+            }
+
+            // ===============================
+            // let maxFiles = 6;
+            // let fileCount = 1;
+
+            // $('#addButton').click(function() {
+            //     if (fileCount < maxFiles) {
+            //         fileCount++;
+            //         let newInput = `<input type="file" class="form-control-file mt-2" id="galeri-${fileCount}" name="galeri-${fileCount}" accept="image/png, image/jpeg">`;
+            //         $('#fileInputs').append(newInput);
+            //         $('#removeButton').prop('disabled', false);
+            //     }
+            //     if (fileCount === maxFiles) {
+            //         $('#addButton').prop('disabled', true);
+            //     }
+            // });
+
+            // $(`#galeri-1`).change(async function() {
+            //     const file = this.files[0]; // Get the selected file
+            //     if (file) {
+            //         try {
+            //             // const base64String = await convertToBase64(file); // Convert file to base64 with compression
+            //             // document.getElementById("input-galeri-1").value = base64String;
+            //             // console.log(document.getElementById("input-galeri-1").value); // Output the base64 string
+
+            //             const base64String = await convertToBase64(file); // Convert file to base64 with compression
+            //             document.getElementById("input-galeri-1").value = base64String;
+            //             // console.log(document.getElementById("input-galeri-1").value); // Output the base64 string
+
+            //             const img = document.getElementById('image-galeri-1');
+            //             img.src = base64String;
+            //             img.classList.add('uploaded');
+            //         } catch (error) {
+            //             console.error("Error converting file to base64:", error);
+            //         }
+            //     }
+            // });
+
+
+
+            // $('#addButton').click(function() {
+            //     if (fileCount < maxFiles) {
+            //         fileCount++;
+            //         let newInput = `<input type="file" class="form-control-file mt-2" id="galeri-${fileCount}"  accept="image/png, image/jpeg">`;
+            //         $('#fileInputs').append(newInput);
+            //         $('#removeButton').prop('disabled', false);
+
+            //         // Add event listener for the new input file
+            //         $(`#galeri-${fileCount}`).change(async function() {
+            //             const file = this.files[0]; // Get the selected file
+            //             if (file) {
+            //                 try {
+            //                     const base64String = await convertToBase64(file); // Convert file to base64 with compression
+            //                     console.log(base64String); // Output the base64 string
+
+            //                     // Create a hidden input to hold the base64 value
+            //                     let base64Input = `<input type="hidden" id="input-galeri-${fileCount}" name="galeri-${fileCount}" value="${base64String}">`;
+
+            //                     $('#fileInputs').append(base64Input);
+            //                 } catch (error) {
+            //                     console.error("Error converting file to base64:", error);
+            //                 }
+            //             }
+            //         });
+            //     }
+            //     if (fileCount === maxFiles) {
+            //         $('#addButton').prop('disabled', true);
+            //     }
+            // });
+
+            // $('#removeButton').click(function() {
+            //     if (fileCount > 1) {
+            //         $('#fileInputs input:last-child').remove();
+            //         fileCount--;
+            //         $('#addButton').prop('disabled', false);
+            //     }
+            //     if (fileCount === 1) {
+            //         $('#removeButton').prop('disabled', true);
+            //     }
+            // });
+
+            // // Disable the remove button initially since we start with one input
+            // $('#removeButton').prop('disabled', true);
+
+
+
+        });
+
+
+    </script>
 
 
 

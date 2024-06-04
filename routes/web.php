@@ -29,10 +29,18 @@ Route::get('/register', function () {
 // End Auth
 
 // ===== ADMIN FAUZI ======
+// Route::prefix('/dashboard')->group(function () {
+//     Route::get('/admin', function () {
+//         return view('admin.wisata.index');
+//     })->name('wisatas.index');
+//     Route::resource('wisata', WisataController::class)->parameters([
+//         'wisata' => 'wisataId'  // Ubah parameter default
+//     ]);
+// });
 Route::prefix('/dashboard')->group(function () {
-    Route::get('/admin', function () {
-        return view('admin.wisata.index');
-    })->name('wisatas.index');
+    Route::get('/wisata', function () {
+        return view('pages.wisata.index');
+    })->name('wisata.index');
     Route::resource('wisata', WisataController::class)->parameters([
         'wisata' => 'wisataId'  // Ubah parameter default
     ]);

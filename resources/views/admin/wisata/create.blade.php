@@ -12,7 +12,7 @@
     <title>Tambah Wisata</title>
 
     <!-- Custom fonts for this template -->
-    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    {{-- <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -26,7 +26,7 @@
 
     <!-- Custom styles for this page -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    {{-- <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> --}}
 
 </head>
 <style>
@@ -61,6 +61,42 @@
         max-width: 100%;
         height: auto;
     }
+
+     .upload-box {
+            width: 100px;
+            height: 100px;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden; /* To ensure the image fits within the box */
+        }
+        .upload-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none; /* Hidden by default */
+        }
+        .upload-box::before {
+            content: '+';
+            font-size: 2em;
+            color: #ccc;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .upload-box img.uploaded {
+            display: block; /* Show the image when it is uploaded */
+        }
+
+        .file-inputs-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Spacing between boxes */
+        }
 
 
 
@@ -130,96 +166,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <form class="form-inline">
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                    </form>
-
-                    <!-- Topbar Search -->
-                    {{-- <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form> --}}
-
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-
-
-
-                        <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Farhan</span>
-                                <img class="img-profile rounded-circle"
-                                    src="{{ asset('assets/images/undraw_profile.svg') }}">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal"
-                                    data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
-
-                    </ul>
-
-                </nav>
+                @include('layouts.admin-header')
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -231,7 +178,7 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <div class="card-body">
-                                    <form action="" method="POST">
+                                    <form action="{{ route('wisata.store') }}" method="POST">
                                         @csrf
                                         @method('POST')
                                         <div class="row">
@@ -240,29 +187,29 @@
                                                 <div class="form-group">
                                                     <label for="nama- ">Destinasi</label>
                                                     <input type="text" class="form-control" id="nama-k"
-                                                        placeholder="Masukkan nama Destinasi" required>
+                                                        placeholder="Masukkan nama Destinasi" name="nama_wisata" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="link-lokasi">Link Lokasi (iframe)</label>
-                                                    <input type="text" class="form-control" id="link-lokasi"
-                                                        placeholder="Masukkan link lokasi">
+                                                    <input type="text" class="form-control" name="map_wisata" id="link-lokasi"
+                                                        placeholder="Masukkan link lokasi" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="lokasi-wisata">Lokasi</label>
-                                                    <textarea class="form-control" id="lokasi" rows="3" placeholder="Masukkan detail lokasi"></textarea>
+                                                    <textarea class="form-control" id="lokasi" name="lokasi_wisata" rows="3" placeholder="Masukkan detail lokasi" required></textarea>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="jam-buka">Jam Buka</label>
-                                                    <textarea class="form-control" id="jam_buka" rows="3" placeholder="Masukkan jam buka"></textarea>
+                                                    <textarea class="form-control" id="jam_buka" name="jam_buka" rows="3" placeholder="Masukkan jam buka" required></textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="harga">Harga</label>
-                                                    <textarea class="form-control" id="harga" rows="3" placeholder="Masukkan daftar harga tiket"></textarea>
+                                                    <textarea class="form-control" id="harga" name="harga_wisata" rows="3" placeholder="Masukkan daftar harga tiket" required></textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="deskripsi">Deskripsi</label>
-                                                    <textarea class="form-control" id="deskripsi" rows="6" placeholder="Masukkan deskripsi"></textarea>
+                                                    <textarea class="form-control" id="deskripsi" name="deskripsi_wisata" rows="6" placeholder="Masukkan deskripsi" required></textarea>
                                                 </div>
                                             </div>
                                             <!-- Deskripsi dan Gambar -->
@@ -270,29 +217,74 @@
 
                                                 <div class="form-group">
                                                     <label for="gambar">Gambar</label>
-                                                    <input type="file" class="form-control-file mb-3" id="gambar"
+                                                    <input type="file" class="form-control-file mb-3" id="gambar_wisata"
                                                         accept="image/png, image/jpeg" required>
                                                     <img class="base64-image" id="image-base64"
                                                         src="{{ asset('assets/images/emptyImage.png') }}">
+                                                        
                                                     <input type="hidden" name="gambar_wisata" id="gambar_input">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <div class="button-container">
-                                                        <label for="gallery">Galeri (max 6 gambar)</label>
-                                                        <div class="">
+                                                        <label for="gallery">Galeri (Minimal 1 Gambar)</label>
+                                                        {{-- <div class="">
                                                             <button type="button" id="removeButton" class="btn btn-primary">-</button>
                                                             <button type="button" id="addButton" class="btn btn-primary">+</button>
+                                                        </div> --}}
+
+                                                    </div>
+                                                    {{-- <div id="fileInputs">
+                                                        <input type="file" class="form-control-file" id="galeri-1" accept="image/png, image/jpeg" required>
+                                                        <input type="hidden" name="galeri-1" id="input-galeri-1">
+                                                    </div> --}}
+
+                                                    <div class="file-inputs-container" id="fileInputs">
+                                                        <div class="mr-1 mb-1">
+                                                            <label class="upload-box" for="galeri-1">
+                                                                <img id="image-galeri-1" class="placeholder" src="" alt="Upload Image">
+                                                            </label>
+                                                            <input type="file" class="form-control-file" id="galeri-1" accept="image/png, image/jpeg" style="display:none" required>
+                                                            <input type="hidden" name="galeri-1" id="input-galeri-1">
                                                         </div>
-
+                                                        <div class="mr-1 mb-1">
+                                                            <label class="upload-box" for="galeri-2">
+                                                                <img id="image-galeri-2" class="placeholder" src="" alt="Upload Image">
+                                                            </label>
+                                                            <input type="file" class="form-control-file" id="galeri-2" accept="image/png, image/jpeg" style="display:none" >
+                                                            <input type="hidden" name="galeri-2" id="input-galeri-2">
+                                                        </div>
+                                                        <div class="mr-1 mb-1">
+                                                            <label class="upload-box" for="galeri-3">
+                                                                <img id="image-galeri-3" class="placeholder" src="" alt="Upload Image">
+                                                            </label>
+                                                            <input type="file" class="form-control-file" id="galeri-3" accept="image/png, image/jpeg" style="display:none" >
+                                                            <input type="hidden" name="galeri-3" id="input-galeri-3">
+                                                        </div>
+                                                        <div class="mr-1 mb-1">
+                                                            <label class="upload-box" for="galeri-4">
+                                                                <img id="image-galeri-4" class="placeholder" src="" alt="Upload Image">
+                                                            </label>
+                                                            <input type="file" class="form-control-file" id="galeri-4" accept="image/png, image/jpeg" style="display:none" >
+                                                            <input type="hidden" name="galeri-4" id="input-galeri-4">
+                                                        </div>
+                                                        <div class="mr-1 mb-1">
+                                                            <label class="upload-box" for="galeri-5">
+                                                                <img id="image-galeri-5" class="placeholder" src="" alt="Upload Image">
+                                                            </label>
+                                                            <input type="file" class="form-control-file" id="galeri-5" accept="image/png, image/jpeg" style="display:none" >
+                                                            <input type="hidden" name="galeri-5" id="input-galeri-5">
+                                                        </div>
+                                                        <div class="mr-1 mb-1">
+                                                            <label class="upload-box" for="galeri-6">
+                                                                <img id="image-galeri-6" class="placeholder" src="" alt="Upload Image">
+                                                            </label>
+                                                            <input type="file" class="form-control-file" id="galeri-6" accept="image/png, image/jpeg" style="display:none" >
+                                                            <input type="hidden" name="galeri-6" id="input-galeri-6">
+                                                        </div>
                                                     </div>
-                                                    <div id="fileInputs">
-                                                        <input type="file" class="form-control-file" id="galeri-1" name="galeri-1" accept="image/png, image/jpeg" required>
-                                                    </div>
 
-                                                    {{-- <button type="button" id="addButton" class="btn btn-primary mt-2">+</button> --}}
                                                 </div>
-
 
                                             </div>
                                         </div>
@@ -370,37 +362,112 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('assets/js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset('assets/js/post_create.js') }}"></script>
 
     <script>
         $(document).ready(function() {
-            let maxFiles = 6;
-            let fileCount = 1;
 
-            $('#addButton').click(function() {
-                if (fileCount < maxFiles) {
-                    fileCount++;
-                    let newInput = `<input type="file" class="form-control-file mt-2" id="galeri-${fileCount}" name="galeri-${fileCount}" accept="image/png, image/jpeg">`;
-                    $('#fileInputs').append(newInput);
-                    $('#removeButton').prop('disabled', false);
-                }
-                if (fileCount === maxFiles) {
-                    $('#addButton').prop('disabled', true);
-                }
-            });
+            for (let i = 1; i <= 6; i++) {
+                document.getElementById(`galeri-${i}`).addEventListener('change', async function() {
+                    const file = this.files[0]; // Get the selected file
+                    if (file) {
+                        try {
+                            const base64String = await convertToBase64(file); // Convert file to base64 with compression
+                            document.getElementById(`input-galeri-${i}`).value = base64String;
+                            console.log(document.getElementById(`input-galeri-${i}`).value); // Output the base64 string
 
-            $('#removeButton').click(function() {
-                if (fileCount > 1) {
-                    $('#fileInputs input:last-child').remove();
-                    fileCount--;
-                    $('#addButton').prop('disabled', false);
-                }
-                if (fileCount === 1) {
-                    $('#removeButton').prop('disabled', true);
-                }
-            });
+                            const img = document.getElementById(`image-galeri-${i}`);
+                            img.src = base64String;
+                            img.classList.add('uploaded');
+                        } catch (error) {
+                            console.error("Error converting file to base64:", error);
+                        }
+                    }
+                });
+            }
 
-            // Disable the remove button initially since we start with one input
-            $('#removeButton').prop('disabled', true);
+            // ===============================
+            // let maxFiles = 6;
+            // let fileCount = 1;
+
+            // $('#addButton').click(function() {
+            //     if (fileCount < maxFiles) {
+            //         fileCount++;
+            //         let newInput = `<input type="file" class="form-control-file mt-2" id="galeri-${fileCount}" name="galeri-${fileCount}" accept="image/png, image/jpeg">`;
+            //         $('#fileInputs').append(newInput);
+            //         $('#removeButton').prop('disabled', false);
+            //     }
+            //     if (fileCount === maxFiles) {
+            //         $('#addButton').prop('disabled', true);
+            //     }
+            // });
+
+            // $(`#galeri-1`).change(async function() {
+            //     const file = this.files[0]; // Get the selected file
+            //     if (file) {
+            //         try {
+            //             // const base64String = await convertToBase64(file); // Convert file to base64 with compression
+            //             // document.getElementById("input-galeri-1").value = base64String;
+            //             // console.log(document.getElementById("input-galeri-1").value); // Output the base64 string
+
+            //             const base64String = await convertToBase64(file); // Convert file to base64 with compression
+            //             document.getElementById("input-galeri-1").value = base64String;
+            //             // console.log(document.getElementById("input-galeri-1").value); // Output the base64 string
+
+            //             const img = document.getElementById('image-galeri-1');
+            //             img.src = base64String;
+            //             img.classList.add('uploaded');
+            //         } catch (error) {
+            //             console.error("Error converting file to base64:", error);
+            //         }
+            //     }
+            // });
+
+
+
+            // $('#addButton').click(function() {
+            //     if (fileCount < maxFiles) {
+            //         fileCount++;
+            //         let newInput = `<input type="file" class="form-control-file mt-2" id="galeri-${fileCount}"  accept="image/png, image/jpeg">`;
+            //         $('#fileInputs').append(newInput);
+            //         $('#removeButton').prop('disabled', false);
+
+            //         // Add event listener for the new input file
+            //         $(`#galeri-${fileCount}`).change(async function() {
+            //             const file = this.files[0]; // Get the selected file
+            //             if (file) {
+            //                 try {
+            //                     const base64String = await convertToBase64(file); // Convert file to base64 with compression
+            //                     console.log(base64String); // Output the base64 string
+
+            //                     // Create a hidden input to hold the base64 value
+            //                     let base64Input = `<input type="hidden" id="input-galeri-${fileCount}" name="galeri-${fileCount}" value="${base64String}">`;
+
+            //                     $('#fileInputs').append(base64Input);
+            //                 } catch (error) {
+            //                     console.error("Error converting file to base64:", error);
+            //                 }
+            //             }
+            //         });
+            //     }
+            //     if (fileCount === maxFiles) {
+            //         $('#addButton').prop('disabled', true);
+            //     }
+            // });
+
+            // $('#removeButton').click(function() {
+            //     if (fileCount > 1) {
+            //         $('#fileInputs input:last-child').remove();
+            //         fileCount--;
+            //         $('#addButton').prop('disabled', false);
+            //     }
+            //     if (fileCount === 1) {
+            //         $('#removeButton').prop('disabled', true);
+            //     }
+            // });
+
+            // // Disable the remove button initially since we start with one input
+            // $('#removeButton').prop('disabled', true);
 
 
 
