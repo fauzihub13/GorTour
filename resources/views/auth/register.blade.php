@@ -67,7 +67,7 @@
                                 <button type="submit"
                                     class="btn btn-primary btn-lg btn-block "
                                     tabindex="4">
-                                    Masuk
+                                    Daftar
                                 </button>
                             </form>
                             <hr>
@@ -94,6 +94,11 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('assets/js/sb-admin-2.min.js')}}"></script>
+
+    <!-- Scritps Sweet Alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>;
+    <script src="{{ asset('assets/js/sweet_alert.js') }}"></script>
+    @include('scripts.sweet_alert')
 
 </body>
 

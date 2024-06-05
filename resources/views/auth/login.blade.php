@@ -50,7 +50,7 @@
                                     <form class="user" action="{{ route('login') }}" method="POST">
                                         @csrf
                                         @method('POST')
-                                        
+
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="email" name="email" aria-describedby="emailHelp"
@@ -100,6 +100,11 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('assets/js/sb-admin-2.min.js')}}"></script>
+
+    <!-- Scritps Sweet Alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>;
+    <script src="{{ asset('assets/js/sweet_alert.js') }}"></script>
+    @include('scripts.sweet_alert')
 
 </body>
 

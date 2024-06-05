@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-    {{-- @include('scripts.session-manager') --}}
+    @include('scripts.session-manager')
+
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -266,7 +268,8 @@
                                                                 {{-- <button class="btn btn-danger btn-sm delete-btn">
                                                                     <i class="fas fa-trash"></i> Delete
                                                                 </button> --}}
-                                                                <form id="deleteForm{{ $value->_id }}" action="{{ route('wisata.destroy', $value->_id) }}" method="POST" >
+                                                                <form id="deleteForm{{ $value->_id }}" action="{{ route('wisata.destroy', $value->_id) }}" method="POST"
+                                                                    onsubmit="return confirmDelete(event, '{{ $value->_id }}')" >
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <input type="hidden" name="_method" value="DELETE" />
@@ -350,6 +353,11 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('assets/js/sb-admin-2.min.js') }}"></script>
+
+    <!-- Scritps Sweet Alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>;
+    <script src="{{ asset('assets/js/sweet_alert.js') }}"></script>
+    @include('scripts.sweet_alert')
 
 
 

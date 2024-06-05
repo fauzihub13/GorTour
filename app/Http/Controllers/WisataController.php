@@ -111,7 +111,7 @@ class WisataController extends Controller
 		curl_close($cUrl);
 
         if ($data->success === true) {
-            return redirect("/dashboard/wisata");
+            return redirect("/dashboard/wisata")->with('success', $data->message);
             // return redirect("/news")->with('success', $data->message);
 
         } else {
@@ -188,7 +188,7 @@ class WisataController extends Controller
 
         // Mengecek jika response sukses dan menyimpan data ke dalam session
         if ($data->success === true) {
-            return redirect("/dashboard/wisata");
+            return redirect("/dashboard/wisata")->with('success', $data->message);
             // return redirect("/news")->with('success', $data->message);
 
         } else {

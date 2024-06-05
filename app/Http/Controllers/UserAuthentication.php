@@ -108,7 +108,7 @@ class UserAuthentication extends Controller
             curl_close($cUrl);
 
             if ($data->success === true) {
-                return redirect("/wisata/admin")->with('success', $data->message);
+                return redirect("/login")->with('success', $data->message);
 
             } else {
                 // Jika login gagal, bisa menampilkan pesan error atau melakukan tindakan lainnya
