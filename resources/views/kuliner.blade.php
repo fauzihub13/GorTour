@@ -50,8 +50,8 @@
                     <li class="has-children">
                         <a href="#">Destinasi</a>
                         <ul class="dropdown">
-                          <li><a href="{{ url('/elements') }}">Destinasi Wisata</a></li>
-                          <li><a href="{{ url('/kuliner') }}">Destinasi Kuliner</a></li>
+                          <li><a href="{{ url('/elements') }}"> Wisata</a></li>
+                          <li><a href="{{ url('/kuliner') }}"> Kuliner</a></li>
                           <li><a href="{{ url('/kotabogor') }}">Kota Bogor</a></li>
                           <li><a href="{{ url('/kabupatenbogor') }}">Kabupaten Bogor</a></li>
                         </ul>
@@ -77,7 +77,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6 mx-auto text-center">
           <div class="intro-wrap">
-            <h1 class="mb-0">Destinasi Kuliner</h1>
+            <h1 class="mb-0"> Kuliner</h1>
             <p class="text-white">Temukan kelezatan kuliner dan udara segar di Puncak, lengkap dengan taman teh yang mempesona. Dengan sejarah dan alam yang memikat, Bogor memanjakan pengunjung dengan pengalaman kuliner yang tak terlupakan. </p>
           </div>
         </div>
@@ -94,9 +94,9 @@
 
       <div class="untree_co-section">
         <div class="container">
-          <div class="row justify-content-center text-center mb-5">
+          <div class="row justify-content-center-beranda text-center mb-5">
             <div class="col-lg-6">
-              <h2 class="section-title text-center mb-3">Destinasi Kuliner Bogor</h2>
+              <h2 class="section-title text-center mb-3"> Kuliner Bogor</h2>
               <!-- <p>Jelajahi dunia dengan penawaran eksklusif dari situs rekomendasi wisata kami! Dapatkan diskon
                 istimewa untuk paket
                 perjalanan, tiket atraksi populer, dan penginapan terbaik. Jangan lewatkan kesempatan untuk
@@ -105,7 +105,7 @@
             </div>
           </div>
 
-          <!-- Destinasi Wisata Kota Bogor -->
+          <!-- img-fluids-card Wisata Kota Bogor -->
 
           <div class="row">
             <!-- Wisata 1 -->
@@ -124,7 +124,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/Soto-Kuning-Bogor.webp') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/Soto-Kuning-Bogor.webp') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -158,7 +158,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/doclang2.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/doclang2.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -192,7 +192,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/asinan-bogor.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/asinan-bogor.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -226,7 +226,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/Cungkring-Pak-Jumat1.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/Cungkring-Pak-Jumat1.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -264,7 +264,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/sopbuah2.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/sopbuah2.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -298,7 +298,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/miekocok3.png') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/miekocok3.png') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -332,7 +332,7 @@
                     <span class="star-setengah">&#9733;</span>
                   </div>
                 </div>
-                <img src="{{ asset('assets/images/toge-gore.png') }}" alt="Image" class="img-fluids">
+                <img src="{{ asset('assets/images/toge-gore.png') }}" alt="Image" class="img-fluids-card">
               </a>
 
               <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -366,7 +366,7 @@
                     <span class="star-setengah">&#9733;</span>
                   </div>
                 </div>
-                <img src="{{ asset('assets/images/lumpia-basah-kesatuan.jpg') }}" alt="Image" class="img-fluids">
+                <img src="{{ asset('assets/images/lumpia-basah-kesatuan.jpg') }}" alt="Image" class="img-fluids-card">
               </a>
 
               <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -421,7 +421,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="widget">
                         <h3 class="heading">Tentang GorTour</h3>
-                        <p>GorTour adalah sumber terpercaya untuk inspirasi wisata. Temukan destinasi
+                        <p>GorTour adalah sumber terpercaya untuk inspirasi wisata. Temukan img-fluids-card
                             menakjubkan, dapatkan tips perjalanan,
                             dan rencanakan petualangan Anda. Jelajahi dunia dengan GorTour - Temukan,
                             Rasakan, Nikmati!

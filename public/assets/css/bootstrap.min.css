@@ -500,9 +500,38 @@ mark {
     content: "\2014\00A0"
 }
 
+.img-fluids-card {
+    object-fit: cover;
+    max-width: 100%;
+    height: 345px
+}
+
+.img-fluids-video {
+    object-fit: cover;
+    max-width: 100%;
+    height: 600px
+}
+.img-fluids-detail {
+    object-fit: cover;
+    max-width: 100%;
+    height: 300px
+}
+
 .img-fluids {
+    object-fit: cover;
     max-width: 100%;
     height: auto
+}
+.img-fluids-home {
+    object-fit: cover;
+    max-width: 100%;
+    height: auto
+}
+
+.img-fluids-slide {
+    object-fit: cover;
+    width: 200px;
+    height:490px;
 }
 
 .img-fluid {
@@ -8919,7 +8948,7 @@ button.bg-dark:hover {
 }
 
 .min-vh-100 {
-    min-height: 100vh !important
+    min-height: 1000vh !important
 }
 
 .vw-100 {
@@ -8927,7 +8956,8 @@ button.bg-dark:hover {
 }
 
 .vh-100 {
-    height: 100vh !important
+    object-fit: cover;
+    height: 40vh !important
 }
 
 .m-0 {

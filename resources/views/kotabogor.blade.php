@@ -84,29 +84,13 @@
                     <img class="bd-placeholder-img w-100 vh-100" src="{{ asset('assets/images/situ-gede-2.jpg') }}">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h2 class="display-4 fw-bold">Wisata Alam</h2>
+                            <h2 class="display-4 fw-bold">Destinasi Wisata Bogor</h2>
                             <!-- <p class="fs-5">Some representative placeholder content for the first slide of the carousel.</p> -->
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img class="bd-placeholder-img w-100 vh-100" src="{{ asset('assets/images/peta.jpg') }}">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h2 class="display-4 fw-bold">Wisata Sejarah</h2>
-                            <!-- <p class="fs-5">Some representative placeholder content for the first slide of the carousel.</p> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="bd-placeholder-img w-100 vh-100" src="{{ asset('assets/images/jungletak.png') }}">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h2 class="display-4 fw-bold">Wisata Hiburan</h2>
-                            <!-- <p class="fs-5">Some representative placeholder content for the first slide of the carousel.</p> -->
-                        </div>
-                    </div>
-                </div>
+               
+        
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -124,7 +108,7 @@
         <div class="container">
           <div class="row justify-content-center-beranda text-center mb-5">
             <div class="col-lg-6">
-              <h2 class="section-title text-center mb-3">Wisata Alam</h2>
+              <h2 class="section-title text-center mb-3"> Destinasi Wisata</h2>
               <!-- <p>Jelajahi dunia dengan penawaran eksklusif dari situs rekomendasi wisata kami! Dapatkan diskon
                 istimewa untuk paket
                 perjalanan, tiket atraksi populer, dan penginapan terbaik. Jangan lewatkan kesempatan untuk
@@ -152,7 +136,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/kebun-raya-bogor-3.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/cobatest.avif ') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -186,7 +170,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/situ-gede-3.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/situ-gede-3.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -220,7 +204,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/kuntum-farmfield.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/kuntum-farmfield.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -254,7 +238,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/tamanmeksiko.png') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/tamanmeksiko.png') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -292,7 +276,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/kampungairkatulampa.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/kampungairkatulampa.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -326,7 +310,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/agro-wisata-mulyaharja.png') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/agro-wisata-mulyaharja.png') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -360,7 +344,7 @@
                     <span class="star-setengah">&#9733;</span>
                   </div>
                 </div>
-                <img src="{{ asset('assets/images/kebun-wisata-ilmiah.jpeg') }}" alt="Image" class="img-fluids">
+                <img src="{{ asset('assets/images/kebun-wisata-ilmiah.jpeg') }}" alt="Image" class="img-fluids-card">
               </a>
 
               <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -394,7 +378,7 @@
                     <span class="star-setengah">&#9733;</span>
                   </div>
                 </div>
-                <img src="{{ asset('assets/images/devoyage.png') }}" alt="Image" class="img-fluids">
+                <img src="{{ asset('assets/images/devoyage.png') }}" alt="Image" class="img-fluids-card">
               </a>
 
               <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -419,16 +403,7 @@
 
       <div class="untree_co-section mt-5">
         <div class="container">
-          <div class="row justify-content-center-beranda text-center mb-5">
-            <div class="col-lg-6">
-              <h2 class="section-title text-center mb-3">Wisata Sejarah</h2>
-              <!-- <p>Jelajahi dunia dengan penawaran eksklusif dari situs rekomendasi wisata kami! Dapatkan diskon
-                istimewa untuk paket
-                perjalanan, tiket atraksi populer, dan penginapan terbaik. Jangan lewatkan kesempatan untuk
-                merencanakan liburan impian
-                Anda dengan harga terbaik.</p> -->
-            </div>
-          </div>
+         
 
           <!-- Destinasi Wisata Kota Bogor -->
 
@@ -449,7 +424,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/monumenpeta.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/monumenpeta.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -483,7 +458,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/meseumalam.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/meseumalam.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -517,7 +492,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/Museum-Balai-Kirti.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/Museum-Balai-Kirti.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -551,7 +526,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/Museum-Perjuangan.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/Museum-Perjuangan.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -589,7 +564,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/Prasasti-Batu-Tulis..jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/Prasasti-Batu-Tulis..jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -623,7 +598,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/Museum-Zoologi.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/Museum-Zoologi.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -639,6 +614,71 @@
                   </div>
                 </div>
               </div>
+          </div>
+
+          <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+            <div class="media-1">
+              <a class="media-thumb" href="{{ asset('assets/images/Water-Park-SKI.png') }}" data-fancybox="gallery">
+                <div class="media-text">
+                  <h3>Water Park SKI</h3>
+                  <span class="location">Kota Bogor</span>
+                  <div class="media-stars">
+                    <h4 class="location pt-2" style="margin-left: 48px;">4,4</h4>
+                    <span class="star ml-1">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star-setengah">&#9733;</span>
+                  </div>
+                </div>
+                <img src="{{ asset('assets/images/Water-Park-SKI.png') }}" alt="Image" class="img-fluids-card">
+              </a>
+
+              <span class="d-flex align-items-center loc mb-2 pt-3">
+                <span class="icon-room mr-3"></span>
+                <span>Kota Bogor</span>
+              </span>
+              <div class="d-flex align-items-center">
+                <div>
+                  <h3><a href="#">Water Park SKI</a></h3>
+                  <div class="price ml-auto">
+                    <span>Rp40.000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+            <div class="media-1">
+              <a class="media-thumb" href="{{ asset('assets/images/transtudominiyasmin.png') }}" data-fancybox="gallery">
+                <div class="media-text">
+                  <h3>Trans Studio Mini</h3>
+                  <span class="location">Kota Bogor</span>
+                  <div class="media-stars">
+                    <h4 class="location pt-2" style="margin-left: 32px;">4,6</h4>
+                    <span class="star ml-1">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star-setengah">&#9733;</span>
+                  </div>
+                </div>
+                <img src="{{ asset('assets/images/transtudominiyasmin.png') }}" alt="Image" class="img-fluids-card">
+              </a>
+
+              <span class="d-flex align-items-center loc mb-2 pt-3">
+                <span class="icon-room mr-3"></span>
+                <span>Kota Bogor</span>
+              </span>
+              <div class="d-flex align-items-center">
+                <div>
+                  <h3><a href="#">Trans Studio Mini</a></h3>
+                  <div class="price ml-auto">
+                    <span>Rp60.000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Wisata 7 -->
@@ -657,7 +697,7 @@
                     <span class="star-setengah">&#9733;</span>
                   </div>
                 </div>
-                <img src="images/curugnangka.jpg" alt="Image" class="img-fluids">
+                <img src="images/curugnangka.jpg" alt="Image" class="img-fluids-card">
               </a>
 
               <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -691,7 +731,7 @@
                     <span class="star-setengah">&#9733;</span>
                   </div>
                 </div>
-                <img src="images/Lembah Tepus.jpg" alt="Image" class="img-fluids">
+                <img src="images/Lembah Tepus.jpg" alt="Image" class="img-fluids-card">
               </a>
 
               <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -715,16 +755,7 @@
       <!-- END .custom-block -->
       <div class="untree_co-section mt-5">
         <div class="container">
-          <div class="row justify-content-center-beranda text-center mb-5">
-            <div class="col-lg-6">
-              <h2 class="section-title text-center mb-3">Wisata Hiburan</h2>
-              <!-- <p>Jelajahi dunia dengan penawaran eksklusif dari situs rekomendasi wisata kami! Dapatkan diskon
-                istimewa untuk paket
-                perjalanan, tiket atraksi populer, dan penginapan terbaik. Jangan lewatkan kesempatan untuk
-                merencanakan liburan impian
-                Anda dengan harga terbaik.</p> -->
-            </div>
-          </div>
+          
 
           <!-- Destinasi Wisata Kota Bogor -->
 
@@ -745,7 +776,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/Bogor-Aquagame.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/Bogor-Aquagame.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -779,7 +810,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/marcopolo.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/marcopolo.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -813,7 +844,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/kuntum-farmfield.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/kuntum-farmfield.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -847,7 +878,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/junglepark.png') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/junglepark.png') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -885,7 +916,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/Jbound-jungle.jpg') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/Jbound-jungle.jpg') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -919,7 +950,7 @@
                       <span class="star-setengah">&#9733;</span>
                     </div>
                   </div>
-                  <img src="{{ asset('assets/images/theillusion.png') }}" alt="Image" class="img-fluids">
+                  <img src="{{ asset('assets/images/theillusion.png') }}" alt="Image" class="img-fluids-card">
                 </a>
 
                 <span class="d-flex align-items-center loc mb-2 pt-3">
@@ -938,72 +969,10 @@
           </div>
 
           <!-- Wisata 7 -->
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <div class="media-1">
-              <a class="media-thumb" href="{{ asset('assets/images/transtudominiyasmin.png') }}" data-fancybox="gallery">
-                <div class="media-text">
-                  <h3>Trans Studio Mini</h3>
-                  <span class="location">Kota Bogor</span>
-                  <div class="media-stars">
-                    <h4 class="location pt-2" style="margin-left: 32px;">4,6</h4>
-                    <span class="star ml-1">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star-setengah">&#9733;</span>
-                  </div>
-                </div>
-                <img src="{{ asset('assets/images/transtudominiyasmin.png') }}" alt="Image" class="img-fluids">
-              </a>
-
-              <span class="d-flex align-items-center loc mb-2 pt-3">
-                <span class="icon-room mr-3"></span>
-                <span>Kota Bogor</span>
-              </span>
-              <div class="d-flex align-items-center">
-                <div>
-                  <h3><a href="#">Trans Studio Mini</a></h3>
-                  <div class="price ml-auto">
-                    <span>Rp60.000</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
 
           <!-- Wisata 8 -->
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <div class="media-1">
-              <a class="media-thumb" href="{{ asset('assets/images/Water-Park-SKI.png') }}" data-fancybox="gallery">
-                <div class="media-text">
-                  <h3>Water Park SKI</h3>
-                  <span class="location">Kota Bogor</span>
-                  <div class="media-stars">
-                    <h4 class="location pt-2" style="margin-left: 48px;">4,4</h4>
-                    <span class="star ml-1">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star-setengah">&#9733;</span>
-                  </div>
-                </div>
-                <img src="{{ asset('assets/images/Water-Park-SKI.png') }}" alt="Image" class="img-fluids">
-              </a>
-
-              <span class="d-flex align-items-center loc mb-2 pt-3">
-                <span class="icon-room mr-3"></span>
-                <span>Kota Bogor</span>
-              </span>
-              <div class="d-flex align-items-center">
-                <div>
-                  <h3><a href="#">Water Park SKI</a></h3>
-                  <div class="price ml-auto">
-                    <span>Rp40.000</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+         
 
         <!-- <p class="text-btn text-center pt-5"><a href="#" class="btn btn-primary">Lihat Semua</a></p> -->
       </div>

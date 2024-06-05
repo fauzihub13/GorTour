@@ -119,7 +119,7 @@
 
   <div class="untree_co-section">
     <div class="container">
-      <div class="row justify-content-center mb-5">
+      <div class="row justify-content-center-beranda mb-5">
         <div class="col-md-6 text-center">
           <h2 class="section-title mb-3 text-center">Team</h2>
         </div>
@@ -138,7 +138,7 @@
           <div class="team">
             <img src="{{ asset('assets/images/person_3.jpg') }}" alt="Image" class="img-fluids mb-4 rounded-20">
             <div class="px-3">
-              <h3 class="mb-0">Muhammad Farhan Fahrezy</h3>
+              <h3 style="text-align: center" class="mb-0">Muhammad Farhan Fahrezy</h3>
               
             </div>
           </div>
@@ -172,32 +172,7 @@
 
  
 
-  <div class="untree_co-section">
-    <div class="container">
-      <div class="row justify-content-between align-items-center">
-
-        <div class="col-lg-6">
-          <figure class="img-play-video">
-            <a id="play-video" class="video-play-button" href="https://youtu.be/5TkcYqIRReg?si=jMe3ezMS2ZITxFKY" data-fancybox>
-              <span></span>
-            </a>
-            <img src="{{ asset('assets/images/kebun-raya-bogor-2.jpg') }}" alt="Image" class="img-fluids rounded-20">
-          </figure>
-        </div>
-
-        <div class="col-lg-5">
-          <h2 class="section-title text-left mb-4">Take a look at Tour Video</h2>
-          <p>Kebun Raya Bogor adalah destinasi wisata yang menawarkan keindahan alam dan kebun botani yang luas di tengah kota Bogor, Jawa Barat. Dikenal sebagai salah satu kebun raya terbesar di dunia, tempat ini menampilkan beragam koleksi tumbuhan yang langka dan menarik. Pengunjung dapat menikmati suasana tenang sambil menjelajahi berbagai jenis tanaman, serta menikmati udara segar dan pemandangan yang indah.</p>
-
-          
-
-          <p><a href="#" class="btn btn-primary">Get Started</a></p>
-
-          
-        </div>
-      </div>
-    </div>
-  </div>
+  
   
   <div class="py-5 cta-section">
     <div class="container">

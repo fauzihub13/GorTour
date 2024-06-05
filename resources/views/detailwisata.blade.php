@@ -164,33 +164,33 @@
                         <div class="row gutter-v2 gallery">
                             <div class="col-4">
                                 <a href="{{ asset('assets/images/krb-c-1.webp') }}" class="gal-item"
-                                    data-fancybox="gal"><img src="{{ asset('assets/images/krb-c-1.webp') }}"
-                                        alt="Image" class="img-fluids"></a>
+                                    data-fancybox="gal"><img src="{{ asset('assets/images/cobatest.avif') }}"
+                                        alt="Image" class="img-fluids-detail"></a>
                             </div>
                             <div class="col-4">
                                 <a href="{{ asset('assets/images/krb-c-2.jpg') }}" class="gal-item"
                                     data-fancybox="gal"><img src="{{ asset('assets/images/krb-c-2.jpg') }}"
-                                        alt="Image" class="img-fluids"></a>
+                                        alt="Image" class="img-fluids-detail"></a>
                             </div>
                             <div class="col-4">
-                                <a href="{{ asset('assets/images/Curug-Cibaliung.png') }}" class="gal-item"
-                                    data-fancybox="gal"><img src="{{ asset('assets/images/Curug-Cibaliung.png') }}"
-                                        alt="Image" class="img-fluids"></a>
+                                <a href="{{ asset('assets/images/krb-c-1.webp') }}" class="gal-item"
+                                    data-fancybox="gal"><img src="{{ asset('assets/images/cobatest.avif') }}"
+                                        alt="Image" class="img-fluids-detail"></a>
                             </div>
                             <div class="col-4">
                                 <a href="{{ asset('assets/images/krb-c-4.jpeg') }}" class="gal-item"
                                     data-fancybox="gal"><img src="{{ asset('assets/images/krb-c-4.jpeg') }}"
-                                        alt="Image" class="img-fluids"></a>
+                                        alt="Image" class="img-fluids-detail"></a>
                             </div>
                             <div class="col-4">
                                 <a href="{{ asset('assets/images/gal_5.jpg') }}" class="gal-item"
                                     data-fancybox="gal"><img src="{{ asset('assets/images/gal_5.jpg') }}"
-                                        alt="Image" class="img-fluids"></a>
+                                        alt="Image" class="img-fluids-detail"></a>
                             </div>
                             <div class="col-4">
-                                <a href="{{ asset('assets/images/gal_6.jpg') }}" class="gal-item"
-                                    data-fancybox="gal"><img src="{{ asset('assets/images/gal_6.jpg') }}"
-                                        alt="Image" class="img-fluids"></a>
+                                <a href="{{ asset('assets/images/krb-c-1.webp') }}" class="gal-item"
+                                    data-fancybox="gal"><img src="{{ asset('assets/images/cobatest.avif') }}"
+                                        alt="Image" class="img-fluids-detail"></a>
                             </div>
                         </div>
                     </div>
