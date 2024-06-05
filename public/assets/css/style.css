@@ -666,15 +666,33 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
       color: white;
       margin: 0;
       padding: 0; }
-    
+
     .media-thumb .media-text h3, .media-thumb .media-text .location {
       -webkit-transition: .3s all ease;
       -o-transition: .3s all ease;
       transition: .3s all ease; }
-  
+  .media-thumb:hover {
+    z-index: 3; }
+    .media-thumb:hover h3 {
+      color: #ffffff; }
+    .media-thumb:hover .location {
+      color: rgba(255, 255, 255, 0.5); }
+    .media-thumb:hover img {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1); }
+    .media-thumb:hover:after {
+      opacity: 0.5;
+      visibility: visible; }
+    .media-thumb:hover .media-text {
+      -webkit-transition-delay: .2s;
+      -o-transition-delay: .2s;
+      transition-delay: .2s;
+      opacity: 1;
+      visibility: visible; }
     .media-stars {
         position: absolute;
-        
+
         left: 33%;
         transform: translateX(-50%);
         display: flex;
@@ -705,16 +723,19 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
         -webkit-background-clip: text; /* Menyisipkan gradient ke dalam teks */
         color: transparent; /* Set warna hanya pada setengah kiri */
       }
-      
-      
-      
-      
-      /* ... (gaya yang sudah ada) ... */
-      
-   
-      
 
-      
+
+
+
+      /* ... (gaya yang sudah ada) ... */
+
+      .media-thumb:hover .media-stars {
+        opacity: 1;
+        visibility: visible;
+      }
+
+
+
 .section-title {
   position: relative;
   padding-bottom: 20px;

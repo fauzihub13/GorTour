@@ -89,8 +89,8 @@
                         </div>
                     </div>
                 </div>
-               
-        
+
+
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -119,6 +119,29 @@
 
           <!-- Destinasi Wisata Kota Bogor -->
 
+          <div class="row d-flex">
+            <?php
+                if (isset($dataWisata) && is_array($dataWisata) && !empty($dataWisata))
+                    $wisataDB = $dataWisata;
+                else
+                    $wisataDB = 0;
+
+                $counter = 0;
+
+                if($wisataDB>0){
+                    foreach ($wisataDB as $value) {
+                        if ($value->wilayah_wisata === "Kota Bogor"){
+                            // $counter +=1;
+
+            ?>
+                            <!-- Wisata  -->
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-5 ">
+                                <div class="media-1 ">
+                                    <a class="media-thumb" href="{{ asset('assets/images/kebun-raya-bogor-3.jpg') }}" data-fancybox="gallery">
+
+                                    {{-- <img src="{{ asset('assets/images/kebun-raya-bogor-3.jpg') }}" alt="Image" class="img-fluids"> --}}
+                                    <img src=" {{ $value->gambar_wisata }} " alt="Image" class="img-fluids-custom">
+                                    </a>
           <div class="row">
             <!-- Wisata 1 -->
             <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
@@ -139,840 +162,98 @@
                   <img src="{{ asset('assets/images/cobatest.avif ') }}" alt="Image" class="img-fluids-card">
                 </a>
 
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="{{ url('/detailwisata') }}">Kebun Raya Bogor</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp35.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                                    <span class="d-flex align-items-center loc mb-2 pt-3">
+                                    <span class="icon-room mr-3"></span>
+                                    <span>Kota Bogor</span>
+                                    </span>
+                                    <div class="d-flex align-items-center">
+                                    <div>
+                                        <h3><a href=""> {{ $value->nama_wisata }} </a></h3>
+                                        {{-- <div class="price ml-auto">
+                                        <span>Rp35.000</span>
+                                        </div> --}}
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
 
-            <!-- Wisata 2 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/situ-gede-3.jpg') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Situ Gede</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 74px;">4,6</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/situ-gede-3.jpg') }}" alt="Image" class="img-fluids-card">
-                </a>
-
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">Situ Gede</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp25.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Wisata 3 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/kuntum-farmfield.jpg') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Kuntum Farmfield</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 31px;">4,5</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/kuntum-farmfield.jpg') }}" alt="Image" class="img-fluids-card">
-                </a>
-
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">Kuntum Farmfield</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp70.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Wisata 4 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/tamanmeksiko.png') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Taman Meksiko</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 43px;">4,6</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/tamanmeksiko.png') }}" alt="Image" class="img-fluids-card">
-                </a>
-
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span> Kota Bogor</span>
-
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">Taman Meksiko</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp15.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php
+                }
+                    }
+                } else{
+                    echo
+                        "<div class='row justify-content-center'>
+                            <h2>Maaf, tidak ada produk untuk saat ini...</h2>
+                        </div>";
+                }
+            ?>
 
           </div>
 
-          <div class="row pt-5 mt-1">
-            <!-- Wisata 5 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/kampungairkatulampa.jpg') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Kampung Air Katulampa</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: px;">4,3</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/kampungairkatulampa.jpg') }}" alt="Image" class="img-fluids-card">
-                </a>
-
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">Kampung Air Katulampa</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp10.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Wisata 6 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/agro-wisata-mulyaharja.png') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Agro Wisata Mulyaharja</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 5px;">4,6</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/agro-wisata-mulyaharja.png') }}" alt="Image" class="img-fluids-card">
-                </a>
-
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">Agro Wisata Mulyaharja</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp10.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-
-          <!-- Wisata 7 -->
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <div class="media-1">
-              <a class="media-thumb" href="{{ asset('assets/images/kebun-wisata-ilmiah.jpeg') }}" data-fancybox="gallery">
-                <div class="media-text">
-                  <h3>Kebun Wisata Ilmiah</h3>
-                  <span class="location">Kota Bogor</span>
-                  <div class="media-stars">
-                    <h4 class="location pt-2" style="margin-left: 21px;">4,6</h4>
-                    <span class="star ml-1">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star-setengah">&#9733;</span>
-                  </div>
-                </div>
-                <img src="{{ asset('assets/images/kebun-wisata-ilmiah.jpeg') }}" alt="Image" class="img-fluids-card">
-              </a>
-
-              <span class="d-flex align-items-center loc mb-2 pt-3">
-                <span class="icon-room mr-3"></span>
-                <span>Kota Bogor</span>
-              </span>
-              <div class="d-flex align-items-center">
-                <div>
-                  <h3><a href="#">Kebun Wisata Ilmiah</a></h3>
-                  <div class="price ml-auto">
-                    <span>Rp6.000</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Wisata 8 -->
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <div class="media-1">
-              <a class="media-thumb" href="{{ asset('assets/images/devoyage.png') }}" data-fancybox="gallery">
-                <div class="media-text">
-                  <h3>Devoyage</h3>
-                  <span class="location">Kota Bogor</span>
-                  <div class="media-stars">
-                    <h4 class="location pt-2" style="margin-left: 74px;">4,1</h4>
-                    <span class="star ml-1">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star-setengah">&#9733;</span>
-                  </div>
-                </div>
-                <img src="{{ asset('assets/images/devoyage.png') }}" alt="Image" class="img-fluids-card">
-              </a>
-
-              <span class="d-flex align-items-center loc mb-2 pt-3">
-                <span class="icon-room mr-3"></span>
-                <span>Kota Bogor</span>
-              </span>
-              <div class="d-flex align-items-center">
-                <div>
-                  <h3><a href="#">Devoyage</a></h3>
-                  <div class="price ml-auto">
-                    <span>Rp30.000</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
         </div>
 
         <!-- <p class="text-btn text-center pt-5"><a href="#" class="btn btn-primary">Lihat Semua</a></p> -->
       </div>
 
-
-      <div class="untree_co-section mt-5">
-        <div class="container">
-         
-
-          <!-- Destinasi Wisata Kota Bogor -->
-
-          <div class="row">
-            <!-- Wisata 1 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/monumenpeta.jpg') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Museum Peta</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 53px;">4,6</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/monumenpeta.jpg') }}" alt="Image" class="img-fluids-card">
-                </a>
-
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">Museum Peta</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp10.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Wisata 2 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/meseumalam.jpg') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Museum Sejarah Alam</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 15px;">4,6</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/meseumalam.jpg') }}" alt="Image" class="img-fluids-card">
-                </a>
-
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">Museum Sejarah Alam</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp25.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Wisata 3 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/Museum-Balai-Kirti.jpg') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Museum Balai Kirti</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 31px;">4,7</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/Museum-Balai-Kirti.jpg') }}" alt="Image" class="img-fluids-card">
-                </a>
-
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">Museum Balai Kirti</a></h3>
-                    <div class="price ml-auto">
-                      <span>Gratis</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Wisata 4 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/Museum-Perjuangan.jpg') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Museum Perjuangan</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 21px;">4,6</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/Museum-Perjuangan.jpg') }}" alt="Image" class="img-fluids-card">
-                </a>
-
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">Museum Perjuangan</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp10.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="row pt-5 mt-1">
-            <!-- Wisata 5 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/Prasasti-Batu-Tulis..jpg') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Prasasti Batu Tulis</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 30px;">4,6</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/Prasasti-Batu-Tulis..jpg') }}" alt="Image" class="img-fluids-card">
-                </a>
-
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">Prasasti Batu Tulis</a></h3>
-                    <div class="price ml-auto">
-                      <span>Gratis</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Wisata 6 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/Museum-Zoologi.jpg') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Museum Zoologi</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 40px;">4,5</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/Museum-Zoologi.jpg') }}" alt="Image" class="img-fluids-card">
-                </a>
-
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">Museum Zoologi</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp15.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <div class="media-1">
-              <a class="media-thumb" href="{{ asset('assets/images/Water-Park-SKI.png') }}" data-fancybox="gallery">
-                <div class="media-text">
-                  <h3>Water Park SKI</h3>
-                  <span class="location">Kota Bogor</span>
-                  <div class="media-stars">
-                    <h4 class="location pt-2" style="margin-left: 48px;">4,4</h4>
-                    <span class="star ml-1">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star-setengah">&#9733;</span>
-                  </div>
-                </div>
-                <img src="{{ asset('assets/images/Water-Park-SKI.png') }}" alt="Image" class="img-fluids-card">
-              </a>
-
-              <span class="d-flex align-items-center loc mb-2 pt-3">
-                <span class="icon-room mr-3"></span>
-                <span>Kota Bogor</span>
-              </span>
-              <div class="d-flex align-items-center">
-                <div>
-                  <h3><a href="#">Water Park SKI</a></h3>
-                  <div class="price ml-auto">
-                    <span>Rp40.000</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <div class="media-1">
-              <a class="media-thumb" href="{{ asset('assets/images/transtudominiyasmin.png') }}" data-fancybox="gallery">
-                <div class="media-text">
-                  <h3>Trans Studio Mini</h3>
-                  <span class="location">Kota Bogor</span>
-                  <div class="media-stars">
-                    <h4 class="location pt-2" style="margin-left: 32px;">4,6</h4>
-                    <span class="star ml-1">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star-setengah">&#9733;</span>
-                  </div>
-                </div>
-                <img src="{{ asset('assets/images/transtudominiyasmin.png') }}" alt="Image" class="img-fluids-card">
-              </a>
-
-              <span class="d-flex align-items-center loc mb-2 pt-3">
-                <span class="icon-room mr-3"></span>
-                <span>Kota Bogor</span>
-              </span>
-              <div class="d-flex align-items-center">
-                <div>
-                  <h3><a href="#">Trans Studio Mini</a></h3>
-                  <div class="price ml-auto">
-                    <span>Rp60.000</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Wisata 7 -->
-          <!-- <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <div class="media-1">
-              <a class="media-thumb" href="images/curugnangka.jpg" data-fancybox="gallery">
-                <div class="media-text">
-                  <h3>Curug Nangka</h3>
-                  <span class="location">Kabupaten Bogor</span>
-                  <div class="media-stars">
-                    <h4 class="location pt-2" style="margin-left: 51px;">4,3</h4>
-                    <span class="star ml-1">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star-setengah">&#9733;</span>
-                  </div>
-                </div>
-                <img src="images/curugnangka.jpg" alt="Image" class="img-fluids-card">
-              </a>
-
-              <span class="d-flex align-items-center loc mb-2 pt-3">
-                <span class="icon-room mr-3"></span>
-                <span>Kabupaten Bogor</span>
-              </span>
-              <div class="d-flex align-items-center">
-                <div>
-                  <h3><a href="#">Curug Nangka</a></h3>
-                  <div class="price ml-auto">
-                    <span>Rp22.000</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- Wisata 8 -->
-          <!-- <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <div class="media-1">
-              <a class="media-thumb" href="images/Lembah Tepus.jpg" data-fancybox="gallery">
-                <div class="media-text">
-                  <h3>Lembah Tebus</h3>
-                  <span class="location">Kabupaten Bogor</span>
-                  <div class="media-stars">
-                    <h4 class="location pt-2" style="margin-left: 50px;">4,6</h4>
-                    <span class="star ml-1">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star">&#9733;</span>
-                    <span class="star-setengah">&#9733;</span>
-                  </div>
-                </div>
-                <img src="images/Lembah Tepus.jpg" alt="Image" class="img-fluids-card">
-              </a>
-
-              <span class="d-flex align-items-center loc mb-2 pt-3">
-                <span class="icon-room mr-3"></span>
-                <span>Kabupaten Bogor</span>
-              </span>
-              <div class="d-flex align-items-center">
-                <div>
-                  <h3><a href="#">Lembah Tebus</a></h3>
-                  <div class="price ml-auto">
-                    <span>Rp10.000</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-        </div>
-
-        <p class="text-btn text-center pt-5"><a href="#" class="btn btn-primary">Lihat Semua</a></p> -->
-      </div>
       <!-- END .custom-block -->
-      <div class="untree_co-section mt-5">
+      <div class="untree_co-section pt-0">
         <div class="container">
-          
+
 
           <!-- Destinasi Wisata Kota Bogor -->
+          <div class="row d-flex">
+            <?php
+                if (isset($dataKuliner) && is_array($dataKuliner) && !empty($dataKuliner))
+                    $kulinerDB = $dataKuliner;
+                else
+                    $kulinerDB = 0;
 
-          <div class="row">
-            <!-- Wisata 1 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/Bogor-Aquagame.jpg') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Bogor Aquagame</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 37px;">4,4</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/Bogor-Aquagame.jpg') }}" alt="Image" class="img-fluids-card">
-                </a>
+                $counter = 0;
 
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">Bogor Aquagame</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp120.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                if($kulinerDB>0){
+                    foreach ($kulinerDB as $value) {
+                        if ($value->wilayah_kuliner === "Kota Bogor"){
+                            // $counter +=1;
 
-            <!-- Wisata 2 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/marcopolo.jpg') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Marcopolo Water</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars" style="margin-left: 19px;">
-                      <h4 class="location pt-2">4,5</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/marcopolo.jpg') }}" alt="Image" class="img-fluids-card">
-                </a>
+            ?>
+                            <!-- Wisata  -->
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-5 ">
+                                <div class="media-1 ">
+                                    <a class="media-thumb" href="{{ asset('assets/images/kebun-raya-bogor-3.jpg') }}" data-fancybox="gallery">
 
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">Marcopolo Water Adventure</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp50.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                                    {{-- <img src="{{ asset('assets/images/kebun-raya-bogor-3.jpg') }}" alt="Image" class="img-fluids"> --}}
+                                    <img src=" {{ $value->gambar_kuliner }} " alt="Image" class="img-fluids-custom">
+                                    </a>
 
-            <!-- Wisata 3 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/kuntum-farmfield.jpg') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Kuntum Farmfield</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 31px;">4,5</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/kuntum-farmfield.jpg') }}" alt="Image" class="img-fluids-card">
-                </a>
+                                    <span class="d-flex align-items-center loc mb-2 pt-3">
+                                    <span class="icon-room mr-3"></span>
+                                    <span>Kota Bogor</span>
+                                    </span>
+                                    <div class="d-flex align-items-center">
+                                    <div>
+                                        <h3><a href=""> {{ $value->nama_kuliner }} </a></h3>
+                                        {{-- <div class="price ml-auto">
+                                        <span>Rp35.000</span>
+                                        </div> --}}
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">Kuntum Farmfield</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp70.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Wisata 4 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/junglepark.png') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>The Jungle Waterpark</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 15px;">4,5</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/junglepark.png') }}" alt="Image" class="img-fluids-card">
-                </a>
-
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span> Kota Bogor</span>
-
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">The Jungle Waterpark</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp55.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php
+                }
+                    }
+                } else{
+                    echo
+                        "<div class='row justify-content-center'>
+                            <h2>Maaf, tidak ada produk untuk saat ini...</h2>
+                        </div>";
+                }
+            ?>
 
           </div>
 
-          <div class="row pt-5 mt-1">
-            <!-- Wisata 5 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/Jbound-jungle.jpg') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Jbound jungle</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 52px;">4,3</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/Jbound-jungle.jpg') }}" alt="Image" class="img-fluids-card">
-                </a>
 
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">Jbound jungle</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp100.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Wisata 6 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/theillusion.png') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>The Illusion</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 59px;">4,4</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/theillusion.png') }}" alt="Image" class="img-fluids-card">
-                </a>
-
-                <span class="d-flex align-items-center loc mb-2 pt-3">
-                  <span class="icon-room mr-3"></span>
-                  <span>Kota Bogor</span>
-                </span>
-                <div class="d-flex align-items-center">
-                  <div>
-                    <h3><a href="#">The Illusion</a></h3>
-                    <div class="price ml-auto">
-                      <span>Rp60.000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-
-          <!-- Wisata 7 -->
-          
-
-          <!-- Wisata 8 -->
-         
 
         <!-- <p class="text-btn text-center pt-5"><a href="#" class="btn btn-primary">Lihat Semua</a></p> -->
       </div>

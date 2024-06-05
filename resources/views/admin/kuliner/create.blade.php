@@ -146,6 +146,15 @@
                                                     <input type="text" class="form-control" name="map_kuliner" id="link-lokasi"
                                                         placeholder="Masukkan link lokasi" required>
                                                 </div>
+
+                                                <div class="form-group">
+                                                    <label for="wilayah_kuliner">Wilayah</label>
+                                                    <select name="wilayah_kuliner" class="form-control">
+                                                        <option value="Kota Bogor" >Kota Bogor</option>
+                                                        <option value="Kabupaten Bogor" >Kabupaten Bogor</option>
+                                                    </select>
+                                                </div>
+
                                                 <div class="form-group">
                                                     <label for="lokasi-wisata">Lokasi</label>
                                                     <textarea class="form-control" id="lokasi" name="lokasi_kuliner" rows="3" placeholder="Masukkan detail lokasi" required></textarea>

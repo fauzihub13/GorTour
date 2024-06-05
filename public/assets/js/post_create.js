@@ -1,6 +1,37 @@
 // CUSTOM SCRIPT JS BY FAUZI
 
 // ========= IMAGE BASE64 =========
+// function convertToBase64(file) {
+//     return new Promise((resolve, reject) => {
+//         const reader = new FileReader();
+//         reader.readAsDataURL(file);
+//         reader.onload = () => {
+//             const image = new Image();
+//             image.src = reader.result;
+//             image.onload = () => {
+//                 const canvas = document.createElement("canvas");
+//                 const aspectRatio = 16 / 9; // Rasio lebar terhadap tinggi
+//                 let width = image.width;
+//                 let height = image.height;
+
+//                 // Menentukan ukuran gambar yang akan di-crop
+//                 if (width / height > aspectRatio) {
+//                     width = height * aspectRatio;
+//                 } else {
+//                     height = width / aspectRatio;
+//                 }
+
+//                 canvas.width = width;
+//                 canvas.height = height;
+//                 const ctx = canvas.getContext("2d");
+//                 ctx.drawImage(image, 0, 0, width, height);
+//                 const compressedBase64 = canvas.toDataURL("image/jpeg", 0.6); // Set the image quality (0.7 = 70%)
+//                 resolve(compressedBase64);
+//             };
+//         };
+//         reader.onerror = (error) => reject(error);
+//     });
+// }
 function convertToBase64(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -13,25 +44,44 @@ function convertToBase64(file) {
                 const aspectRatio = 16 / 9; // Rasio lebar terhadap tinggi
                 let width = image.width;
                 let height = image.height;
+                let newWidth, newHeight, offsetX, offsetY;
 
-                // Menentukan ukuran gambar yang akan di-crop
                 if (width / height > aspectRatio) {
-                    width = height * aspectRatio;
+                    // Crop width to match aspect ratio
+                    newWidth = height * aspectRatio;
+                    newHeight = height;
+                    offsetX = (width - newWidth) / 2;
+                    offsetY = 0;
                 } else {
-                    height = width / aspectRatio;
+                    // Crop height to match aspect ratio
+                    newWidth = width;
+                    newHeight = width / aspectRatio;
+                    offsetX = 0;
+                    offsetY = (height - newHeight) / 2;
                 }
 
-                canvas.width = width;
-                canvas.height = height;
+                canvas.width = newWidth;
+                canvas.height = newHeight;
                 const ctx = canvas.getContext("2d");
-                ctx.drawImage(image, 0, 0, width, height);
-                const compressedBase64 = canvas.toDataURL("image/jpeg", 0.6); // Set the image quality (0.7 = 70%)
+                ctx.drawImage(
+                    image,
+                    offsetX,
+                    offsetY,
+                    newWidth,
+                    newHeight,
+                    0,
+                    0,
+                    newWidth,
+                    newHeight
+                );
+                const compressedBase64 = canvas.toDataURL("image/jpeg", 0.6); // Set the image quality (0.6 = 60%)
                 resolve(compressedBase64);
             };
         };
         reader.onerror = (error) => reject(error);
     });
 }
+
 
 const imageUploadElement = document.getElementById("gambar_wisata");
 

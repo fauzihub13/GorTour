@@ -83,6 +83,7 @@ class KulinerController extends Controller
             'jam_buka' => $request->input("jam_buka"),
             'deskripsi_kuliner' => $request->input("deskripsi_kuliner"),
             'gambar_kuliner' => $request->input("gambar_kuliner"),
+            'wilayah_kuliner' => $request->input("wilayah_kuliner"),
             'lokasi_kuliner' => $request->input("lokasi_kuliner"),
             'map_kuliner' => $request->input("map_kuliner"),
             'galeri' => [
@@ -158,6 +159,7 @@ class KulinerController extends Controller
             'jam_buka' => $request->input("jam_buka"),
             'deskripsi_kuliner' => $request->input("deskripsi_kuliner"),
             'gambar_kuliner' => $request->input("gambar_kuliner"),
+            'wilayah_kuliner' => $request->input("wilayah_kuliner"),
             'lokasi_kuliner' => $request->input("lokasi_kuliner"),
             'map_kuliner' => $request->input("map_kuliner"),
             'galeri' => [

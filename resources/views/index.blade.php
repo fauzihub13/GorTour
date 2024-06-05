@@ -144,28 +144,27 @@
     </div>
 
 
-    <div class="untree_co-section">
-        <div class="container">
-            <div class="row mb-5 justify-content-center-beranda">
-                <div class="col-lg-6 text-center">
-                    <h2 class="section-title text-center mb-3">Layanan Kami</h2>
-                    <p>Menjadi penyedia wisata kota terkemuka, kami di GorTour dengan bangga menawarkan
-                        berbagai layanan unggulan
-                        untuk memastikan pengalaman wisata kota Anda menjadi tak terlupakan. Dengan komitmen kami untuk
-                        memberikan pelayanan
-                        terbaik, tim profesional kami siap membantu Anda menjelajahi keindahan dan budaya kota ini.</p>
-                </div>
-            </div>
-            <div class="row align-items-stretch">
-                <div class="col-lg-4 order-lg-1">
-                    <div class="h-100">
-                        <div class="frame h-100">
-                            <div class="feature-img-bg h-100"
-                                style="background-image: url('{{ asset('assets/images/situ-gede-3.jpg') }}');">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+	<div class="untree_co-section">
+		<div class="container">
+			<div class="row mb-5 justify-content-center-beranda">
+				<div class="col-lg-6 text-center">
+					<h2 class="section-title text-center mb-3">Layanan Kami</h2>
+					<p>Menjadi penyedia wisata kota terkemuka, kami di GorTour dengan bangga menawarkan
+						berbagai layanan unggulan
+						untuk memastikan pengalaman wisata kota Anda menjadi tak terlupakan. Dengan komitmen kami untuk
+						memberikan pelayanan
+						terbaik, tim profesional kami siap membantu Anda menjelajahi keindahan dan budaya kota ini.</p>
+				</div>
+			</div>
+			<div class="row align-items-stretch">
+				<div class="col-lg-4 order-lg-1">
+					<div class="h-100">
+						<div class="frame h-100">
+							<div class="feature-img-bg h-100" style="background-image: url('{{ asset('assets/images/situ-gede-3.jpg') }}');">
+							</div>
+						</div>
+					</div>
+				</div>
 
                 <div class="col-6 col-sm-6 col-lg-4 feature-1-wrap d-md-flex flex-md-column order-lg-1">
 
@@ -252,13 +251,13 @@
 
 
 
-    <div class="untree_co-section">
-        <div class="container">
-            <div class="row text-center justify-content-center-beranda mb-5">
-                <div class="col-lg-7">
-                    <h2 class="section-title text-center">Destinasi Kuliner</h2>
-                </div>
-            </div>
+	<div class="untree_co-section">
+		<div class="container">
+			<div class="row text-center justify-content-center-beranda mb-5">
+				<div class="col-lg-7">
+					<h2 class="section-title text-center">Popular Destination</h2>
+				</div>
+			</div>
 
             <div class="owl-carousel owl-3-slider">
 

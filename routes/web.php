@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\KulinerController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\KotaBogorController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -77,8 +79,14 @@ Route::get('/kuliner', function () {
     return view('kuliner');
 })->name('kuliner');
 
-Route::get('/kotabogor', function () {
-    return view('kotabogor');
+// Route::get('/kotabogor', [App\Http\Controllers\KotaBogorController::class, "index"])->name('');
+Route::prefix('/')->group(function () {
+    Route::get('/kotabogor', function () {
+        return view('kotabogor');
+    })->name('kotabogor.index');
+    Route::resource('kotabogor', KotaBogorController::class)->parameters([
+        'id' => 'id'  // Ubah parameter default
+    ]);
 });
 
 Route::get('/kabupatenbogor', function () {
