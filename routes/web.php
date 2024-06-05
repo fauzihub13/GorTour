@@ -5,6 +5,8 @@ use App\Http\Controllers\WisataController;
 use App\Http\Controllers\KulinerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KotaBogorController;
+use App\Http\Controllers\KabupatenBogorController;
+use App\Http\Controllers\HomeController;
 
 
 /*
@@ -67,17 +69,25 @@ Route::prefix('/dashboard')->group(function () {
 
 
 //====== USER ======
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+// Route::get('/', function () {
+//     return view('index');
+// })->name('index');
+Route::get('/', [App\Http\Controllers\HomeController::class, "index"])->name('index.homepage');
 
-Route::get('/elements', function () {
-    return view('elements');
-});
+Route::get('/destinasi/wisata', [App\Http\Controllers\WisataController::class, "destinasiWisata"])->name('destinasi.wisata.index');
+Route::get('/destinasi/wisata/{id}', [App\Http\Controllers\WisataController::class, "detailWisata"])->name('destinasi.wisata.detail');
 
-Route::get('/kuliner', function () {
-    return view('kuliner');
-})->name('kuliner');
+Route::get('/destinasi/kuliner', [App\Http\Controllers\KulinerController::class, "destinasiKuliner"])->name('destinasi.kuliner.index');
+Route::get('/destinasi/kuliner/{id}', [App\Http\Controllers\KulinerController::class, "detailKuliner"])->name('destinasi.kuliner.detail');
+
+
+// Route::get('/detailwisata', function () {
+//     return view('detailwisata');
+// });
+
+// Route::get('/kuliner', function () {
+//     return view('kuliner');
+// })->name('kuliner');
 
 // Route::get('/kotabogor', [App\Http\Controllers\KotaBogorController::class, "index"])->name('');
 Route::prefix('/')->group(function () {
@@ -89,8 +99,17 @@ Route::prefix('/')->group(function () {
     ]);
 });
 
-Route::get('/kabupatenbogor', function () {
-    return view('kabupatenbogor');
+// Route::get('/kabupatenbogor', function () {
+//     return view('kabupatenbogor');
+// });
+
+Route::prefix('/')->group(function () {
+    Route::get('/kabupatenbogor', function () {
+        return view('kabupatenbogor');
+    })->name('kabupatenbogor.index');
+    Route::resource('kabupatenbogor', KabupatenBogorController::class)->parameters([
+        'id' => 'id'  // Ubah parameter default
+    ]);
 });
 
 Route::get('/about', function () {
@@ -101,10 +120,8 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/detailwisata', function () {
-    return view('detailwisata');
-});
 
-Route::get('/detailkuliner', function () {
-    return view('detailkuliner');
-})->name('detailkuliner');
+
+// Route::get('/detailkuliner', function () {
+//     return view('detailkuliner');
+// })->name('detailkuliner');

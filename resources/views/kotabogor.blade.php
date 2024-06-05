@@ -84,7 +84,7 @@
                     <img class="bd-placeholder-img w-100 vh-100" src="{{ asset('assets/images/situ-gede-2.jpg') }}">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h2 class="display-4 fw-bold">Destinasi Wisata Bogor</h2>
+                            <h2 class="display-4 fw-bold">Destinasi Kota Bogor</h2>
                             <!-- <p class="fs-5">Some representative placeholder content for the first slide of the carousel.</p> -->
                         </div>
                     </div>
@@ -103,64 +103,104 @@
         </div>
     </main>
 
-
+    {{-- NEW SECTION WISATA --}}
       <div class="untree_co-section">
         <div class="container">
           <div class="row justify-content-center-beranda text-center mb-5">
             <div class="col-lg-6">
               <h2 class="section-title text-center mb-3"> Destinasi Wisata</h2>
-              <!-- <p>Jelajahi dunia dengan penawaran eksklusif dari situs rekomendasi wisata kami! Dapatkan diskon
-                istimewa untuk paket
-                perjalanan, tiket atraksi populer, dan penginapan terbaik. Jangan lewatkan kesempatan untuk
-                merencanakan liburan impian
-                Anda dengan harga terbaik.</p> -->
             </div>
           </div>
 
           <!-- Destinasi Wisata Kota Bogor -->
 
-          <div class="row d-flex">
-            <?php
-                if (isset($dataWisata) && is_array($dataWisata) && !empty($dataWisata))
-                    $wisataDB = $dataWisata;
-                else
-                    $wisataDB = 0;
+            <div class="row d-flex">
+                <?php
+                    if (isset($dataWisata) && is_array($dataWisata) && !empty($dataWisata))
+                        $wisataDB = $dataWisata;
+                    else
+                        $wisataDB = 0;
 
-                $counter = 0;
+                    $counter = 0;
 
-                if($wisataDB>0){
-                    foreach ($wisataDB as $value) {
-                        if ($value->wilayah_wisata === "Kota Bogor"){
-                            // $counter +=1;
+                    if($wisataDB>0){
+                        foreach ($wisataDB as $value) {
+                            if ($value->wilayah_wisata === "Kota Bogor"){
+                                // $counter +=1;
 
-            ?>
-                            <!-- Wisata  -->
-                            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-5 ">
-                                <div class="media-1 ">
-                                    <a class="media-thumb" href="{{ asset('assets/images/kebun-raya-bogor-3.jpg') }}" data-fancybox="gallery">
+                ?>
+                            <!-- Wisata 1 -->
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-5">
+                                <div class="media-1">
+                                    <a class="media-thumb" href="{{ route('destinasi.wisata.detail', $value->_id) }}" >
 
-                                    {{-- <img src="{{ asset('assets/images/kebun-raya-bogor-3.jpg') }}" alt="Image" class="img-fluids"> --}}
-                                    <img src=" {{ $value->gambar_wisata }} " alt="Image" class="img-fluids-custom">
+                                    <img src="{{ $value->gambar_wisata }}" alt="Image" class="img-fluids-card">
                                     </a>
-          <div class="row">
-            <!-- Wisata 1 -->
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <div class="media-1">
-                <a class="media-thumb" href="{{ asset('assets/images/kebun-raya-bogor-3.jpg') }}" data-fancybox="gallery">
-                  <div class="media-text">
-                    <h3>Kebun Raya Bogor</h3>
-                    <span class="location">Kota Bogor</span>
-                    <div class="media-stars">
-                      <h4 class="location pt-2" style="margin-left: 30px;">4,7</h4>
-                      <span class="star ml-1">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star">&#9733;</span>
-                      <span class="star-setengah">&#9733;</span>
-                    </div>
-                  </div>
-                  <img src="{{ asset('assets/images/cobatest.avif ') }}" alt="Image" class="img-fluids-card">
-                </a>
+
+                                    <span class="d-flex align-items-center loc mb-2 pt-3">
+                                    <span class="icon-room mr-3"></span>
+                                    <span>Kota Bogor</span>
+                                    </span>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <h3><a href="">{{ $value->nama_wisata }}</a></h3>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                <?php
+                    }
+                        }
+                    } else{
+                        echo
+                            "<div class='row justify-content-center'>
+                                <h2>Maaf, tidak ada produk untuk saat ini...</h2>
+                            </div>";
+                    }
+                ?>
+            </div>
+
+        </div>
+
+        <!-- <p class="text-btn text-center pt-5"><a href="#" class="btn btn-primary">Lihat Semua</a></p> -->
+      </div>
+
+      {{-- NEW SECTION KULINER --}}
+      <div class="untree_co-section pt-2">
+        <div class="container">
+          <div class="row justify-content-center-beranda text-center mb-5">
+            <div class="col-lg-6">
+              <h2 class="section-title text-center mb-3"> Destinasi Kuliner</h2>
+            </div>
+          </div>
+
+          <!-- Destinasi Wisata Kota Bogor -->
+
+            <div class="row d-flex">
+                <?php
+                    if (isset($dataKuliner) && is_array($dataKuliner) && !empty($dataKuliner))
+                        $kulinerDB = $dataKuliner;
+                    else
+                        $kulinerDB = 0;
+
+                    $counter = 0;
+
+                    if($kulinerDB>0){
+                        foreach ($kulinerDB as $value) {
+                            if ($value->wilayah_kuliner=== "Kota Bogor"){
+                                // $counter +=1;
+
+                ?>
+                            <!-- Wisata 1 -->
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-5">
+                                <div class="media-1">
+                                    <a class="media-thumb" href="{{ route('destinasi.kuliner    .detail', $value->_id) }}">
+
+                                    <img src="{{ $value->gambar_kuliner }}" alt="Image" class="img-fluids-card">
+                                    </a>
 
                                     <span class="d-flex align-items-center loc mb-2 pt-3">
                                     <span class="icon-room mr-3"></span>
@@ -168,27 +208,25 @@
                                     </span>
                                     <div class="d-flex align-items-center">
                                     <div>
-                                        <h3><a href=""> {{ $value->nama_wisata }} </a></h3>
-                                        {{-- <div class="price ml-auto">
-                                        <span>Rp35.000</span>
-                                        </div> --}}
+                                        <h3><a href="">{{ $value->nama_kuliner }}</a></h3>
+
                                     </div>
                                     </div>
                                 </div>
                             </div>
 
-            <?php
-                }
-                    }
-                } else{
-                    echo
-                        "<div class='row justify-content-center'>
-                            <h2>Maaf, tidak ada produk untuk saat ini...</h2>
-                        </div>";
-                }
-            ?>
 
-          </div>
+                <?php
+                    }
+                        }
+                    } else{
+                        echo
+                            "<div class='row justify-content-center'>
+                                <h2>Maaf, tidak ada produk untuk saat ini...</h2>
+                            </div>";
+                    }
+                ?>
+            </div>
 
         </div>
 
@@ -196,74 +234,8 @@
       </div>
 
       <!-- END .custom-block -->
-      <div class="untree_co-section pt-0">
-        <div class="container">
 
 
-          <!-- Destinasi Wisata Kota Bogor -->
-          <div class="row d-flex">
-            <?php
-                if (isset($dataKuliner) && is_array($dataKuliner) && !empty($dataKuliner))
-                    $kulinerDB = $dataKuliner;
-                else
-                    $kulinerDB = 0;
-
-                $counter = 0;
-
-                if($kulinerDB>0){
-                    foreach ($kulinerDB as $value) {
-                        if ($value->wilayah_kuliner === "Kota Bogor"){
-                            // $counter +=1;
-
-            ?>
-                            <!-- Wisata  -->
-                            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-5 ">
-                                <div class="media-1 ">
-                                    <a class="media-thumb" href="{{ asset('assets/images/kebun-raya-bogor-3.jpg') }}" data-fancybox="gallery">
-
-                                    {{-- <img src="{{ asset('assets/images/kebun-raya-bogor-3.jpg') }}" alt="Image" class="img-fluids"> --}}
-                                    <img src=" {{ $value->gambar_kuliner }} " alt="Image" class="img-fluids-custom">
-                                    </a>
-
-                                    <span class="d-flex align-items-center loc mb-2 pt-3">
-                                    <span class="icon-room mr-3"></span>
-                                    <span>Kota Bogor</span>
-                                    </span>
-                                    <div class="d-flex align-items-center">
-                                    <div>
-                                        <h3><a href=""> {{ $value->nama_kuliner }} </a></h3>
-                                        {{-- <div class="price ml-auto">
-                                        <span>Rp35.000</span>
-                                        </div> --}}
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-
-            <?php
-                }
-                    }
-                } else{
-                    echo
-                        "<div class='row justify-content-center'>
-                            <h2>Maaf, tidak ada produk untuk saat ini...</h2>
-                        </div>";
-                }
-            ?>
-
-          </div>
-
-
-
-        <!-- <p class="text-btn text-center pt-5"><a href="#" class="btn btn-primary">Lihat Semua</a></p> -->
-      </div>
-        </div>
-      </div>
-
-
-
-    </div>
-  </div>
 
   <div class="py-5 cta-section">
     <div class="container">
@@ -272,7 +244,7 @@
                 <h2 class="mb-2 text-white">Berikan Wisata Terbaikmu. Hubungi Kami</h2>
                 <p class="mb-4 lead text-white text-white-opacity">Punya rekomendasi wisata menarik di daerah Bogor?
                 </p>
-                <p class="mb-0"><a href="booking.html"
+                <p class="mb-0"><a href=""
                         class="btn btn-outline-white text-white btn-md font-weight-bold">Hubungi Kami</a></p>
             </div>
         </div>

@@ -60,6 +60,27 @@ class WisataController extends Controller
 		// return view("pages.news.index")->with("dataProducts");
     }
 
+    public function destinasiWisata()
+    {
+        //
+        // Memanggil metode readAllNews() untuk mendapatkan data
+
+        $dataWisata = $this->readAllWisata();
+
+        return view("wisata", compact("dataWisata"));
+        // var_dump($dataNews);
+
+		// return view("pages.news.index")->with("dataProducts");
+    }
+
+    public function detailWisata(string $wisataId)
+    {
+        //
+         $dataWisata = $this->readAllWisata("?id=" . $wisataId);
+
+        return view("detailwisata", compact("dataWisata"));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -60,6 +60,27 @@ class KulinerController extends Controller
 		// return view("pages.news.index")->with("dataProducts");
     }
 
+        public function destinasiKuliner()
+    {
+        //
+        // Memanggil metode readAllNews() untuk mendapatkan data
+
+        $dataKuliner = $this->readAllKuliner();
+
+        return view("kuliner", compact("dataKuliner"));
+        // var_dump($dataNews);
+
+		// return view("pages.news.index")->with("dataProducts");
+    }
+
+    public function detailKuliner(string $kulinerId)
+    {
+        //
+        $dataKuliner = $this->readAllKuliner("?id=" . $kulinerId);
+
+        return view("detailKuliner", compact("dataKuliner"));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

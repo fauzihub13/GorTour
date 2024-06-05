@@ -260,80 +260,45 @@
 			</div>
 
             <div class="owl-carousel owl-3-slider">
+                <?php
+                    if (isset($dataKuliner) && is_array($dataKuliner) && !empty($dataKuliner))
+                        $kulinerDB = $dataKuliner;
+                    else
+                        $kulinerDB = 0;
+
+                    $counter = 0;
+
+                    if($kulinerDB>0){
+                        foreach ($kulinerDB as $value) {
+
+                                // $counter +=1;
+
+                ?>
+                            {{-- SLIDER KULINER --}}
+                            <div class="item">
+                                <a class="media-thumb" href="{{ route('destinasi.kuliner.detail', $value->_id) }}">
+                                    <div class="media-text">
+                                        <h3>{{ $value->nama_kuliner }}</h3>
+                                        <span class="location">{{ $value->wilayah_kuliner }}</span>
+
+                                    </div>
+                                    <img src="{{ $value->gambar_kuliner }}" alt="Image"
+                                        class="img-fluids-slide">
+                                </a>
+                            </div>
+                            {{-- END SLIDER KULINER --}}
+                <?php
+
+                        }
+                    } else{
+                        echo
+                            "<div class='row justify-content-center'>
+                                <h2>Maaf, tidak ada produk untuk saat ini...</h2>
+                            </div>";
+                    }
+                ?>
 
 
-                <div class="item">
-                    <a class="media-thumb" href="{{ url('/detailkuliner') }}">
-                        <div class="media-text">
-                            <h3>Asinan Bogor</h3>
-                            <span class="location">Bogor</span>
-
-                        </div>
-                        <img src="{{ asset('assets/images/asinan2.jpeg') }}" alt="Image"
-                            class="img-fluids-slide">
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a class="media-thumb" href="{{ url('/detailkuliner') }}">
-                        <div class="media-text">
-                            <h3>Asinan Bogor</h3>
-                            <span class="location">Bogor</span>
-
-                        </div>
-                        <img src="{{ asset('assets/images/sotokuning1.jpeg') }}" alt="Image"
-                            class="img-fluids-slide">
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a class="media-thumb" href="{{ url('/detailkuliner') }}">
-                        <div class="media-text">
-                            <h3>Asinan Bogor</h3>
-                            <span class="location">Bogor</span>
-
-                        </div>
-                        <img src="{{ asset('assets/images/asinan2.jpeg') }}" alt="Image"
-                            class="img-fluids-slide">
-                    </a>
-                </div>
-
-
-                <div class="item">
-                    <a class="media-thumb" href="{{ url('/detailkuliner') }}">
-                        <div class="media-text">
-                            <h3>Asinan Bogor</h3>
-                            <span class="location">Bogor</span>
-
-                        </div>
-                        <img src="{{ asset('assets/images/asinan2.jpeg') }}" alt="Image"
-                            class="img-fluids-slide">
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a class="media-thumb" href="{{ url('/detailkuliner') }}">
-                        <div class="media-text">
-                            <h3>Asinan Bogor</h3>
-                            <span class="location">Bogor</span>
-
-                        </div>
-                        <img src="{{ asset('assets/images/asinan2.jpeg') }}" alt="Image"
-                            class="img-fluids-slide">
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a class="media-thumb" href="{{ url('/detailkuliner') }}">
-                        <div class="media-text">
-                            <h3>Asinan Bogor</h3>
-                            <span class="location">Bogor</span>
-
-                        </div>
-                        <img src="{{ asset('assets/images/cobatest.avif') }}" alt="Image"
-                            class="img-fluids-slide">
-                    </a>
-                </div>
 
             </div>
 
@@ -341,7 +306,7 @@
 
     </div>
 
-    <p><a href="{{ url('/kuliner') }}" style="font-size:24px; font-weight:bold;"
+    <p><a href="{{ url('/destinasi/kuliner') }}" style="font-size:24px; font-weight:bold;"
             class="row justify-content-center-beranda">Selengkapnya &#10230;</i></a></p>
 
 
@@ -357,97 +322,64 @@
 
                 </div>
             </div>
-            <div class="row">
-                <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                    <div class="media-1">
-                        <a href="#" class="d-block mb-3"><img
-                                src="{{ asset('assets/images/situ-gede-3.jpg') }}" alt="Image"
-                                class="img-fluids"></a>
-                        <span class="d-flex align-items-center loc mb-2">
-                            <span class="icon-room mr-3"></span>
-                            <span>Bogor</span>
-                        </span>
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h3><a href="#">Situ Gede</a></h3>
-                                <div class="price ml-auto">
-                                    <span>Rp35.000</span>
+
+            <div class="row owl-carousel owl-3-slider">
+                <?php
+                    if (isset($dataWisata) && is_array($dataWisata) && !empty($dataWisata))
+                        $wisataDB = $dataWisata;
+                    else
+                        $wisataDB = 0;
+
+                    $counter = 0;
+
+                    if($wisataDB>0){
+                        foreach ($wisataDB as $value) {
+
+                                // $counter +=1;
+
+                ?>
+                            {{-- SLIDER KULINER --}}
+                            <div class="">
+                                <div class="media-1">
+                                    <a class="media-thumb" href="{{ route('destinasi.wisata.detail', $value->_id) }}" >
+
+                                        <img src="{{ $value->gambar_wisata }}" alt="Image" class="img-fluids-card">
+                                    </a>
+
+                                    <span class="d-flex align-items-center loc mb-2 pt-3">
+                                    <span class="icon-room mr-3"></span>
+                                    <span>{{ $value->wilayah_wisata }}</span>
+                                    </span>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <h3><a href="">{{ $value->nama_wisata }}</a></h3>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            {{-- END SLIDER KULINER --}}
+                <?php
 
-                        </div>
+                        }
+                    } else{
+                        echo
+                            "<div class='row justify-content-center'>
+                                <h2>Maaf, tidak ada produk untuk saat ini...</h2>
+                            </div>";
+                    }
+                ?>
 
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                    <div class="media-1">
-                        <a href="#" class="d-block mb-3"><img
-                                src="{{ asset('assets/images/gunung-pancar-3.jpg') }}" alt="Image"
-                                class="img-fluids-card"></a>
-                        <span class="d-flex align-items-center loc mb-2">
-                            <span class="icon-room mr-3"></span>
-                            <span>Bogor</span>
-                        </span>
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h3><a href="#">Gunung Pancar</a></h3>
-                                <div class="price ml-auto">
-                                    <span>Rp75.000</span>
-                                </div>
-                            </div>
 
-                        </div>
 
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                    <div class="media-1">
-                        <a href="#" class="d-block mb-3"><img
-                                src="{{ asset('assets/images/taman-safari-3.jpg') }}" alt="Image"
-                                class="img-fluids-card"></a>
-                        <span class="d-flex align-items-center loc mb-2">
-                            <span class="icon-room mr-3"></span>
-                            <span>Bogor</span>
-                        </span>
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h3><a href="#">Taman Safari</a></h3>
-                                <div class="price ml-auto">
-                                    <span>Rp100.000</span>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                    <div class="media-1">
-                        <a href="#" class="d-block mb-3"><img src="{{ asset('assets/images/cobatest.avif') }}"
-                                alt="Image" class="img-fluids-card"></a>
-
-                        <span class="d-flex align-items-center loc mb-2">
-                            <span class="icon-room mr-3"></span>
-                            <span>Bogor</span>
-                        </span>
-
-                        <div class="d-flex align-items-center">
-                            <div>
-                                <h3><a href="{{ url('/detailwisata') }}">Kebun Raya Bogor</a></h3>
-                                <div class="price ml-auto">
-                                    <span>Rp35.000</span>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
             </div>
+
+
+
         </div>
     </div>
 
-    <p><a href="{{ url('/kotabogor') }}" style="font-size:24px; font-weight:bold;"
+    <p><a href="{{ url('/destinasi/wisata') }}" style="font-size:24px; font-weight:bold;"
             class="row justify-content-center-beranda">Selengkapnya &#10230;</i></a></p>
 
 

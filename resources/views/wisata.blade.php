@@ -78,8 +78,8 @@
       <div class="row align-items-center">
         <div class="col-lg-6 mx-auto text-center">
           <div class="intro-wrap">
-            <h1 class="mb-0">Destinasi Kuliner</h1>
-            <p class="text-white">Temukan kelezatan kuliner dan udara segar di Puncak, lengkap dengan taman teh yang mempesona. Dengan sejarah dan alam yang memikat, Bogor memanjakan pengunjung dengan pengalaman kuliner yang tak terlupakan.</p>
+            <h1 class="mb-0">Destinasi Wisata</h1>
+            <p class="text-white">Temukan keindahan alam dan udara segar di Puncak, lengkap dengan taman teh yang mempesona. Dengan sejarah dan alam yang memikat, Bogor memanjakan pengunjung dengan pengalaman wisata yang tak terlupakan. </p>
           </div>
         </div>
       </div>
@@ -104,7 +104,7 @@
         <div class="container">
           <div class="row justify-content-center-beranda text-center mb-5">
             <div class="col-lg-6">
-              <h2 class="section-title text-center mb-3"> Destinasi Kuliner</h2>
+              <h2 class="section-title text-center mb-3"> Destinasi Wisata</h2>
             </div>
           </div>
 
@@ -112,33 +112,33 @@
 
             <div class="row d-flex">
                 <?php
-                    if (isset($dataKuliner) && is_array($dataKuliner) && !empty($dataKuliner))
-                        $kulinerDB = $dataKuliner;
+                    if (isset($dataWisata) && is_array($dataWisata) && !empty($dataWisata))
+                        $wisataDB = $dataWisata;
                     else
-                        $kulinerDB = 0;
+                        $wisataDB = 0;
 
                     $counter = 0;
 
-                    if($kulinerDB>0){
-                        foreach ($kulinerDB as $value) {
+                    if($wisataDB>0){
+                        foreach ($wisataDB as $value) {
 
 
                 ?>
                             <!-- Wisata 1 -->
                             <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-5">
                                 <div class="media-1">
-                                    <a class="media-thumb" href="{{ route('destinasi.kuliner.detail', $value->_id) }}" >
+                                    <a class="media-thumb" href="{{ route('destinasi.wisata.detail', $value->_id) }}">
 
-                                        <img src="{{ $value->gambar_kuliner }}" alt="Image" class="img-fluids-card">
+                                        <img src="{{ $value->gambar_wisata }}" alt="Image" class="img-fluids-card">
                                     </a>
 
                                     <span class="d-flex align-items-center loc mb-2 pt-3">
                                     <span class="icon-room mr-3"></span>
-                                    <span>{{ $value->wilayah_kuliner }}</span>
+                                    <span>{{ $value->wilayah_wisata }}</span>
                                     </span>
                                     <div class="d-flex align-items-center">
                                     <div>
-                                        <h3><a href="{{ route('destinasi.kuliner.detail', $value->_id) }}">{{ $value->nama_kuliner }}</a></h3>
+                                        <h3><a href="{{ route('destinasi.wisata.detail', $value->_id) }}">{{ $value->nama_wisata }}</a></h3>
 
                                     </div>
                                     </div>

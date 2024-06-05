@@ -79,12 +79,26 @@
         </div>
     </nav>
 
+    <?php
+        if (isset($dataWisata) && is_array($dataWisata) && !empty($dataWisata))
+            $wisataDB = $dataWisata;
+        else
+            $wisataDB = 0;
+
+        $counter = 0;
+
+        if($wisataDB>0){
+            foreach ($wisataDB as $value) {
+
+
+    ?>
+
     <div class="hero hero-inner">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mx-auto text-center">
                     <div class="intro-wrap">
-                        <h1 class="mb-0">Kebun Raya Bogor</h1>
+                        <h1 class="mb-0">{{ $value->nama_wisata }}</h1>
                     </div>
                 </div>
             </div>
@@ -95,25 +109,18 @@
         <div class="container my-5 lg-8">
             <div class="mb-4">
                 <div class="owl-single dots-absolute owl-carousel">
-                    <img class="rounded" src="{{ asset('assets/images/kebun-raya-bogor-2.jpg') }}" class="img-fluid">
+                    <img class="rounded" src="{{ $value->gambar_wisata }}" class="img-fluid">
                 </div>
+
                 <div class="mt-4">
-                    <h4><b>Kebun Raya Bogor</b></h4>
+                    <h4><b>{{ $value->nama_wisata }}</b></h4>
                 </div>
                 <div>
                     <div class="accordion-body lg-8" style="font-size:25px;">
-                        Kebun Raya Bogor adalah taman botani yang terletak di Bogor, Jawa Barat, Indonesia. Didirikan
-                        pada tahun
-                        1817, kebun raya ini merupakan salah satu kebun raya tertua di dunia. Kebun Raya Bogor memiliki
-                        luas sekitar
-                        87 hektar dan dikenal karena keanekaragaman koleksi tanamannya, termasuk pohon-pohon tua yang
-                        indah, kolam,
-                        dan taman-taman tematik. Tempat ini juga menjadi pusat penelitian dan konservasi tumbuhan, serta
-                        merupakan
-                        destinasi wisata populer bagi pengunjung yang ingin menikmati keindahan alam dan belajar tentang
-                        keanekaragaman hayati.
+                       {{ $value->deskripsi_wisata }}
                     </div>
                 </div>
+
             </div>
 
             <div class="row justify-content-center">
@@ -130,13 +137,12 @@
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                     data-parent="#accordion_1">
                                     <div class="accordion-body">
-                                        Kebun Raya Bogor (Bogor Botanical Gardens), Jl. Ir. H. Juanda No.13, Paledang,
-                                        Kecamatan Bogor
-                                        Tengah, Kota Bogor, Jawa Barat 16122, Indonesia
-                                        <iframe
+                                        {{ $value->lokasi_wisata }} <br><br>
+                                        {{ $value->map_wisata }}
+                                        {{-- <iframe
                                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12312.315117412625!2d106.79525297719881!3d-6.59962405580465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5c412a67abb%3A0x75f23c6b45a37ee5!2sKebun%20Raya%20Bogor!5e0!3m2!1sid!2sid!4v1710215392179!5m2!1sid!2sid"
                                             width="600" height="450" style="border:0;" allowfullscreen=""
-                                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
                                     </div>
                                 </div>
                             </div>
@@ -150,8 +156,20 @@
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                     data-parent="#accordion_1">
                                     <div class="accordion-body">
-                                        <b></b>Jam waktu setempat (WIB) <br><br>
-                                        Weekday: 08:00-16:00 | WeekEnd: 07:00-16:00 <p>
+                                        {{ $value->jam_buka }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseFour" aria-expanded="false"
+                                        aria-controls="collapseFour">Harga</button>
+                                </h2>
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                    data-parent="#accordion_1">
+                                    <div class="accordion-body">
+                                        {{ $value->harga_wisata }}
                                     </div>
                                 </div>
                             </div>
@@ -162,36 +180,46 @@
                     <div class="custom-block" data-aos="fade-up">
                         <h2 class="section-title">Galleri</h2>
                         <div class="row gutter-v2 gallery">
-                            <div class="col-4">
-                                <a href="{{ asset('assets/images/krb-c-1.webp') }}" class="gal-item"
-                                    data-fancybox="gal"><img src="{{ asset('assets/images/cobatest.avif') }}"
-                                        alt="Image" class="img-fluids-detail"></a>
-                            </div>
-                            <div class="col-4">
-                                <a href="{{ asset('assets/images/krb-c-2.jpg') }}" class="gal-item"
-                                    data-fancybox="gal"><img src="{{ asset('assets/images/krb-c-2.jpg') }}"
-                                        alt="Image" class="img-fluids-detail"></a>
-                            </div>
-                            <div class="col-4">
-                                <a href="{{ asset('assets/images/krb-c-1.webp') }}" class="gal-item"
-                                    data-fancybox="gal"><img src="{{ asset('assets/images/cobatest.avif') }}"
-                                        alt="Image" class="img-fluids-detail"></a>
-                            </div>
-                            <div class="col-4">
-                                <a href="{{ asset('assets/images/krb-c-4.jpeg') }}" class="gal-item"
-                                    data-fancybox="gal"><img src="{{ asset('assets/images/krb-c-4.jpeg') }}"
-                                        alt="Image" class="img-fluids-detail"></a>
-                            </div>
-                            <div class="col-4">
-                                <a href="{{ asset('assets/images/gal_5.jpg') }}" class="gal-item"
-                                    data-fancybox="gal"><img src="{{ asset('assets/images/gal_5.jpg') }}"
-                                        alt="Image" class="img-fluids-detail"></a>
-                            </div>
-                            <div class="col-4">
-                                <a href="{{ asset('assets/images/krb-c-1.webp') }}" class="gal-item"
-                                    data-fancybox="gal"><img src="{{ asset('assets/images/cobatest.avif') }}"
-                                        alt="Image" class="img-fluids-detail"></a>
-                            </div>
+                            {{-- @if (isset($value->galeri->galeri_1) && is_string($value->galeri->galeri_1) && strpos($value->galeri->galeri_1, 'data:image') === 0)
+                                <div class="col-4">
+                                    <a href="{{ $value->galeri->galeri_1 }}" class="gal-item"
+                                        data-fancybox="gal">
+                                        <img src="{{ $value->galeri->galeri_1 }}"
+                                            alt="Image" class="img-fluids-detail">
+                                    </a>
+                                </div>
+                            @else
+                                <div class="col-4">
+                                    <a href="$value->galeri->galeri_1" class="gal-item"
+                                        data-fancybox="gal">
+                                        <img src="$value->galeri->galeri_1"
+                                            alt="Image" class="img-fluids-detail">
+                                    </a>
+                                </div>
+                            @endif --}}
+                            @for ($i = 1; $i <= 6; $i++)
+                                @php
+                                    $galeri = "galeri_{$i}";
+                                @endphp
+                                @if (isset($value->galeri->$galeri) && is_string($value->galeri->$galeri) && strpos($value->galeri->$galeri, 'data:image') === 0)
+                                    <div class="col-4">
+                                        <a href="{{ $value->galeri->$galeri }}" class="gal-item" data-fancybox="gal">
+                                            <img src="{{ $value->galeri->$galeri }}" alt="Image" class="img-fluids-detail">
+                                        </a>
+                                    </div>
+                                @else
+                                    {{-- <div class="col-4">
+                                        <a href="{{ asset('assets/images/emptyImage.png') }}" class="gal-item" data-fancybox="gal">
+                                            <img src="{{ asset('assets/images/emptyImage.png') }}" alt="Image" class="img-fluids-detail">
+                                        </a>
+                                    </div> --}}
+                                @endif
+                            @endfor
+
+
+
+
+
                         </div>
                     </div>
 
@@ -199,6 +227,16 @@
             </div>
         </div>
     </div>
+    <?php
+
+            }
+        } else{
+            echo
+                "<div class='row justify-content-center'>
+                    <h2>Maaf, tidak ada produk untuk saat ini...</h2>
+                </div>";
+        }
+    ?>
 
     <div class="site-footer">
         <div class="inner first">
