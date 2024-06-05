@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class WisataController extends Controller
+class UserController extends Controller
 {
-    public array $dataWisata = [];
+    public array $dataUser = [];
 
-    public function readAllWisata($wisataId="") : array
+    public function readAllUser($userId="") : array
     {
 
-        $query = (!empty($wisataId)) ? $wisataId : "";
+        $query = (!empty($userId)) ? $userId : "";
 
         // API URL
-        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/getWisata'.$query;
+        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/getUser'.$query;
 
         $cUrl = curl_init();
 
@@ -38,7 +38,7 @@ class WisataController extends Controller
             $row = $data->result;
 
             if (is_array($row) && !empty($row))
-			return $this->dataWisata = $row;
+			return $this->dataUser = $row;
 
         }
         return [];
@@ -52,9 +52,9 @@ class WisataController extends Controller
         //
         // Memanggil metode readAllNews() untuk mendapatkan data
 
-        $dataWisata = $this->readAllWisata();
+        $dataUser = $this->readAllUser();
 
-        return view("admin.wisata.index", compact("dataWisata"));
+        return view("admin.user.index", compact("dataUser"));
         // var_dump($dataNews);
 
 		// return view("pages.news.index")->with("dataProducts");
@@ -65,7 +65,7 @@ class WisataController extends Controller
      */
     public function create()
     {
-        return view('admin.wisata.create');
+        return view('admin.user.create');
     }
 
     /**
@@ -74,26 +74,15 @@ class WisataController extends Controller
     public function store(Request $request)
     {
         // API URL
-        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/postWisata';
+        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/register';
 
         $cUrl = curl_init();
 
         $dataJSON = json_encode(array(
-            'nama_wisata' => $request->input("nama_wisata"),
-            'jam_buka' => $request->input("jam_buka"),
-            'deskripsi_wisata' => $request->input("deskripsi_wisata"),
-            'gambar_wisata' => $request->input("gambar_wisata"),
-            'lokasi_wisata' => $request->input("lokasi_wisata"),
-            'map_wisata' => $request->input("map_wisata"),
-            'harga_wisata' => $request->input("harga_wisata"),
-            'galeri' => [
-                "galeri_1"=> $request->input("galeri-1"),
-                "galeri_2"=> $request->input("galeri-2"),
-                "galeri_3"=> $request->input("galeri-3"),
-                "galeri_4"=> $request->input("galeri-4"),
-                "galeri_5"=> $request->input("galeri-5"),
-                "galeri_6"=> $request->input("galeri-6"),
-            ],
+            'username' => $request->input("username"),
+            'password' => $request->input("password"),
+            'email' => $request->input("email"),
+            'nama_lengkap' => $request->input("nama_lengkap"),
         ));
 
 		$options = array(
@@ -111,12 +100,12 @@ class WisataController extends Controller
 		curl_close($cUrl);
 
         if ($data->success === true) {
-            return redirect("/dashboard/wisata")->with('success', $data->message);
+            return redirect("/dashboard/user")->with('success', $data->message);
             // return redirect("/news")->with('success', $data->message);
 
         } else {
             // Jika login gagal, bisa menampilkan pesan error atau melakukan tindakan lainnya
-            return redirect("/dashboard/wisata")->with('error', $data->message);
+            return redirect("/dashboard/user")->with('error', $data->message);
         }
 
         // return redirect("/news");
@@ -127,7 +116,7 @@ class WisataController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $wisataId)
+    public function show(string $userId)
     {
         //
     }
@@ -135,41 +124,30 @@ class WisataController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $wisataId)
+    public function edit(string $userId)
     {
         //
-         $dataWisata = $this->readAllWisata("?id=" . $wisataId);
+         $dataUser = $this->readAllUser("?id=" . $userId);
 
-        return view("admin.wisata.edit", compact("dataWisata"));
+        return view("admin.user.edit", compact("dataUser"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $wisataId){
+    public function update(Request $request, $userId){
 
-        $query= "?id=".$wisataId;
+        $query= "?id=".$userId;
         // API URL
-        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/putWisata'.$query ;
+        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/putUser'.$query ;
 
         $cUrl = curl_init();
 
        $dataJSON = json_encode(array(
-            'nama_wisata' => $request->input("nama_wisata"),
-            'jam_buka' => $request->input("jam_buka"),
-            'deskripsi_wisata' => $request->input("deskripsi_wisata"),
-            'gambar_wisata' => $request->input("gambar_wisata"),
-            'lokasi_wisata' => $request->input("lokasi_wisata"),
-            'map_wisata' => $request->input("map_wisata"),
-            'harga_wisata' => $request->input("harga_wisata"),
-            'galeri' => [
-                "galeri_1"=> $request->input("galeri-1"),
-                "galeri_2"=> $request->input("galeri-2"),
-                "galeri_3"=> $request->input("galeri-3"),
-                "galeri_4"=> $request->input("galeri-4"),
-                "galeri_5"=> $request->input("galeri-5"),
-                "galeri_6"=> $request->input("galeri-6"),
-            ],
+            'username' => $request->input("username"),
+            'email' => $request->input("email"),
+            'nama_lengkap' => $request->input("nama_lengkap"),
+            'role' => $request->input("role"),
         ));
 
 		$options = array(
@@ -183,17 +161,17 @@ class WisataController extends Controller
 		curl_setopt_array($cUrl, $options);
 		$response = curl_exec($cUrl);
 		$data = json_decode($response);
-        // var_dump($data);
+        var_dump($options);
 		curl_close($cUrl);
 
         // Mengecek jika response sukses dan menyimpan data ke dalam session
         if ($data->success === true) {
-            return redirect("/dashboard/wisata")->with('success', $data->message);
+            return redirect("/dashboard/user")->with('success', $data->message);
             // return redirect("/news")->with('success', $data->message);
 
         } else {
             // Jika login gagal, bisa menampilkan pesan error atau melakukan tindakan lainnya
-            return redirect("/dashboard/wisata")->with('error', $data->message);
+            return redirect("/dashboard/user")->with('error', $data->message);
         }
 
         // return "masuk update isinya: ". $request ;
@@ -203,11 +181,11 @@ class WisataController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $wisataId)
+    public function destroy(string $userId)
     {
-        $query= "?id=".$wisataId;
+        $query= "?id=".$userId;
         // API URL
-        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/deleteWisata'.$query ;
+        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/deleteUser'.$query ;
 
         $cUrl = curl_init();
 
@@ -226,12 +204,13 @@ class WisataController extends Controller
 
         // Mengecek jika response sukses dan menyimpan data ke dalam session
         if ($data->success === true) {
-            return redirect("/dashboard/wisata")->with('success', $data->message);
+            return redirect("/dashboard/user")->with('success', $data->message);
 
         } else {
             // Jika login gagal, bisa menampilkan pesan error atau melakukan tindakan lainnya
-            return redirect("/dashboard/wisata")->with('error', $data->message);
+            return redirect("/dashboard/user")->with('error', $data->message);
 
         }
     }
 }
+

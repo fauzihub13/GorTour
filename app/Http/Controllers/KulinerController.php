@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class WisataController extends Controller
+class KulinerController extends Controller
 {
-    public array $dataWisata = [];
+    public array $dataKuliner = [];
 
-    public function readAllWisata($wisataId="") : array
+    public function readAllKuliner($kulinerId="") : array
     {
 
-        $query = (!empty($wisataId)) ? $wisataId : "";
+        $query = (!empty($kulinerId)) ? $kulinerId : "";
 
         // API URL
-        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/getWisata'.$query;
+        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/getKuliner'.$query;
 
         $cUrl = curl_init();
 
@@ -38,7 +38,7 @@ class WisataController extends Controller
             $row = $data->result;
 
             if (is_array($row) && !empty($row))
-			return $this->dataWisata = $row;
+			return $this->dataKuliner = $row;
 
         }
         return [];
@@ -52,9 +52,9 @@ class WisataController extends Controller
         //
         // Memanggil metode readAllNews() untuk mendapatkan data
 
-        $dataWisata = $this->readAllWisata();
+        $dataKuliner = $this->readAllKuliner();
 
-        return view("admin.wisata.index", compact("dataWisata"));
+        return view("admin.kuliner.index", compact("dataKuliner"));
         // var_dump($dataNews);
 
 		// return view("pages.news.index")->with("dataProducts");
@@ -65,7 +65,7 @@ class WisataController extends Controller
      */
     public function create()
     {
-        return view('admin.wisata.create');
+        return view('admin.kuliner.create');
     }
 
     /**
@@ -74,18 +74,17 @@ class WisataController extends Controller
     public function store(Request $request)
     {
         // API URL
-        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/postWisata';
+        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/postKuliner';
 
         $cUrl = curl_init();
 
         $dataJSON = json_encode(array(
-            'nama_wisata' => $request->input("nama_wisata"),
+            'nama_kuliner' => $request->input("nama_kuliner"),
             'jam_buka' => $request->input("jam_buka"),
-            'deskripsi_wisata' => $request->input("deskripsi_wisata"),
-            'gambar_wisata' => $request->input("gambar_wisata"),
-            'lokasi_wisata' => $request->input("lokasi_wisata"),
-            'map_wisata' => $request->input("map_wisata"),
-            'harga_wisata' => $request->input("harga_wisata"),
+            'deskripsi_kuliner' => $request->input("deskripsi_kuliner"),
+            'gambar_kuliner' => $request->input("gambar_kuliner"),
+            'lokasi_kuliner' => $request->input("lokasi_kuliner"),
+            'map_kuliner' => $request->input("map_kuliner"),
             'galeri' => [
                 "galeri_1"=> $request->input("galeri-1"),
                 "galeri_2"=> $request->input("galeri-2"),
@@ -111,12 +110,12 @@ class WisataController extends Controller
 		curl_close($cUrl);
 
         if ($data->success === true) {
-            return redirect("/dashboard/wisata")->with('success', $data->message);
+            return redirect("/dashboard/kuliner")->with('success', $data->message);
             // return redirect("/news")->with('success', $data->message);
 
         } else {
             // Jika login gagal, bisa menampilkan pesan error atau melakukan tindakan lainnya
-            return redirect("/dashboard/wisata")->with('error', $data->message);
+            return redirect("/dashboard/kuliner")->with('error', $data->message);
         }
 
         // return redirect("/news");
@@ -127,7 +126,7 @@ class WisataController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $wisataId)
+    public function show(string $kulinerId)
     {
         //
     }
@@ -135,33 +134,32 @@ class WisataController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $wisataId)
+    public function edit(string $kulinerId)
     {
         //
-         $dataWisata = $this->readAllWisata("?id=" . $wisataId);
+         $dataKuliner = $this->readAllKuliner("?id=" . $kulinerId);
 
-        return view("admin.wisata.edit", compact("dataWisata"));
+        return view("admin.kuliner.edit", compact("dataKuliner"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $wisataId){
+    public function update(Request $request, $kulinerId){
 
-        $query= "?id=".$wisataId;
+        $query= "?id=".$kulinerId;
         // API URL
-        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/putWisata'.$query ;
+        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/putKuliner'.$query ;
 
         $cUrl = curl_init();
 
        $dataJSON = json_encode(array(
-            'nama_wisata' => $request->input("nama_wisata"),
+            'nama_kuliner' => $request->input("nama_kuliner"),
             'jam_buka' => $request->input("jam_buka"),
-            'deskripsi_wisata' => $request->input("deskripsi_wisata"),
-            'gambar_wisata' => $request->input("gambar_wisata"),
-            'lokasi_wisata' => $request->input("lokasi_wisata"),
-            'map_wisata' => $request->input("map_wisata"),
-            'harga_wisata' => $request->input("harga_wisata"),
+            'deskripsi_kuliner' => $request->input("deskripsi_kuliner"),
+            'gambar_kuliner' => $request->input("gambar_kuliner"),
+            'lokasi_kuliner' => $request->input("lokasi_kuliner"),
+            'map_kuliner' => $request->input("map_kuliner"),
             'galeri' => [
                 "galeri_1"=> $request->input("galeri-1"),
                 "galeri_2"=> $request->input("galeri-2"),
@@ -188,12 +186,12 @@ class WisataController extends Controller
 
         // Mengecek jika response sukses dan menyimpan data ke dalam session
         if ($data->success === true) {
-            return redirect("/dashboard/wisata")->with('success', $data->message);
+            return redirect("/dashboard/kuliner")->with('success', $data->message);
             // return redirect("/news")->with('success', $data->message);
 
         } else {
             // Jika login gagal, bisa menampilkan pesan error atau melakukan tindakan lainnya
-            return redirect("/dashboard/wisata")->with('error', $data->message);
+            return redirect("/dashboard/kuliner")->with('error', $data->message);
         }
 
         // return "masuk update isinya: ". $request ;
@@ -203,11 +201,11 @@ class WisataController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $wisataId)
+    public function destroy(string $kulinerId)
     {
-        $query= "?id=".$wisataId;
+        $query= "?id=".$kulinerId;
         // API URL
-        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/deleteWisata'.$query ;
+        $url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-pldpgou/endpoint/deleteKuliner'.$query ;
 
         $cUrl = curl_init();
 
@@ -226,11 +224,11 @@ class WisataController extends Controller
 
         // Mengecek jika response sukses dan menyimpan data ke dalam session
         if ($data->success === true) {
-            return redirect("/dashboard/wisata")->with('success', $data->message);
+            return redirect("/dashboard/kuliner")->with('success', $data->message);
 
         } else {
             // Jika login gagal, bisa menampilkan pesan error atau melakukan tindakan lainnya
-            return redirect("/dashboard/wisata")->with('error', $data->message);
+            return redirect("/dashboard/kuliner")->with('error', $data->message);
 
         }
     }

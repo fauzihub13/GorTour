@@ -60,7 +60,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Kuliner</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Pengguna</h1>
                         {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
                     </div>
@@ -71,14 +71,14 @@
                 <div class="container-fluid">
                     <!-- Button -->
                     <div class="mb-4">
-                        <a href="{{ route('kuliner.create')}}" class="btn btn-primary" id="addNewButton">
-                            <i class="fas fa-plus-circle"></i> Tambah Data Kuliner
+                        <a href="{{ route('user.create')}}" class="btn btn-primary" id="addNewButton">
+                            <i class="fas fa-plus-circle"></i> Tambah Data Admin
                         </a>
                     </div>
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Kuliner</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -86,53 +86,47 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Kuliner</th>
-                                            <th>Lokasi</th>
-                                            <th>Deskripsi</th>
-                                            <th>Gambar</th>
+                                            <th>Nama Lengkap</th>
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                            if (isset($dataKuliner) && is_array($dataKuliner) && !empty($dataKuliner))
-                                                $resultDB = $dataKuliner;
+                                            if (isset($dataUser) && is_array($dataUser) && !empty($dataUser))
+                                                $userDB = $dataUser;
                                             else
-                                                $resultDB = 0;
+                                                $userDB = 0;
 
                                             $counter = 0;
 
-                                            if($resultDB>0){
-                                                foreach ($resultDB as $value) {
-                                                    $counter +=1; ?>
+                                            if($userDB>0){
+                                                foreach ($userDB as $value) {
+                                                    $counter +=1;
+
+                                                    if ($value->role === 1){
+                                                        $role="Admin";
+                                                    }else{
+                                                        $role="User";
+                                                    }
+
+                                                    ?>
                                                     <tr>
                                                         <td> {{ $counter }} </td>
-                                                        <td> {{ ($value->nama_kuliner) }} </td>
-                                                        <td> {{ substr($value->lokasi_kuliner,0, 32) }} </td>
-                                                        <td> {{ substr($value->deskripsi_kuliner,0, 32) }} </td>
-                                                        <td>
-                                                            @if (isset($value->gambar_kuliner) && is_string($value->gambar_kuliner) && strpos($value->gambar_kuliner, 'data:image') === 0)
-                                                                <img class="base64-image-thumbnail"  src="{{ $value->gambar_kuliner }}">
-                                                            @else
-                                                                <img class="base64-image-thumbnail"  src="{{ asset('assets/images/gortour/emptyImage.png') }}">
-                                                            @endif
-                                                            {{-- <img class="base64-image-thumbnail"  src="{{ asset('assets/images/gortour/emptyImage.png') }}"> --}}
-                                                        </td>
+                                                        <td> {{ substr($value->nama_lengkap,0, 32)}} </td>
+                                                        <td> {{ substr($value->username,0, 32) }} </td>
+                                                        <td> {{ substr($value->email,0, 32) }} </td>
+                                                        <td> {{ ($role) }} </td>
                                                         <td>
                                                             <div class="d-flex ">
-                                                                {{-- <a href="">
-                                                                <button class="btn btn-primary btn-sm edit-btn" >
-                                                                    <i class="fas fa-edit"></i> Edit
-                                                                </button></a> --}}
-                                                                <a href='{{ route('kuliner.edit', $value->_id) }}'
+                                                                <a href='{{ route('user.edit', $value->_id) }}'
                                                                     class="btn btn-primary btn-sm edit-btn mr-1">
                                                                     <i class="fas fa-edit"></i>
                                                                     Edit
                                                                 </a>
-                                                                {{-- <button class="btn btn-danger btn-sm delete-btn">
-                                                                    <i class="fas fa-trash"></i> Delete
-                                                                </button> --}}
-                                                                <form id="deleteForm{{ $value->_id }}" action="{{ route('kuliner.destroy', $value->_id) }}" method="POST"
+                                                                <form id="deleteForm{{ $value->_id }}" action="{{ route('user.destroy', $value->_id) }}" method="POST"
                                                                     onsubmit="return confirmDelete(event, '{{ $value->_id }}')" >
                                                                     @csrf
                                                                     @method('DELETE')

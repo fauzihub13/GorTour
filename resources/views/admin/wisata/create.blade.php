@@ -108,55 +108,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center"
-                href="{{ route('wisata.index') }}">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-map"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">GorTour </div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ route('wisata.index') }}">
-                    <i class="fa fa-map"></i>
-                    <span>Wisata</span></a>
-            </li>
-
-
-
-            <hr class="sidebar-divider my-0">
-
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('kuliner.index') }}">
-                    <i class="fa fa-plate-wheat" aria-hidden="true"></i>
-                    <span>Kuliner</span></a>
-            </li>
-
-            <hr class="sidebar-divider my-0">
-
-
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-
-
-
-        </ul>
+        @include('layouts.admin-sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -221,23 +173,15 @@
                                                         accept="image/png, image/jpeg" required>
                                                     <img class="base64-image" id="image-base64"
                                                         src="{{ asset('assets/images/emptyImage.png') }}">
-                                                        
+
                                                     <input type="hidden" name="gambar_wisata" id="gambar_input">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <div class="button-container">
                                                         <label for="gallery">Galeri (Minimal 1 Gambar)</label>
-                                                        {{-- <div class="">
-                                                            <button type="button" id="removeButton" class="btn btn-primary">-</button>
-                                                            <button type="button" id="addButton" class="btn btn-primary">+</button>
-                                                        </div> --}}
 
                                                     </div>
-                                                    {{-- <div id="fileInputs">
-                                                        <input type="file" class="form-control-file" id="galeri-1" accept="image/png, image/jpeg" required>
-                                                        <input type="hidden" name="galeri-1" id="input-galeri-1">
-                                                    </div> --}}
 
                                                     <div class="file-inputs-container" id="fileInputs">
                                                         <div class="mr-1 mb-1">
@@ -304,23 +248,13 @@
                     </div>
                 </div>
 
-
-
-
-
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
+            @include('layouts.admin-footer')
             <!-- End of Footer -->
 
         </div>
@@ -386,97 +320,9 @@
                 });
             }
 
-            // ===============================
-            // let maxFiles = 6;
-            // let fileCount = 1;
-
-            // $('#addButton').click(function() {
-            //     if (fileCount < maxFiles) {
-            //         fileCount++;
-            //         let newInput = `<input type="file" class="form-control-file mt-2" id="galeri-${fileCount}" name="galeri-${fileCount}" accept="image/png, image/jpeg">`;
-            //         $('#fileInputs').append(newInput);
-            //         $('#removeButton').prop('disabled', false);
-            //     }
-            //     if (fileCount === maxFiles) {
-            //         $('#addButton').prop('disabled', true);
-            //     }
-            // });
-
-            // $(`#galeri-1`).change(async function() {
-            //     const file = this.files[0]; // Get the selected file
-            //     if (file) {
-            //         try {
-            //             // const base64String = await convertToBase64(file); // Convert file to base64 with compression
-            //             // document.getElementById("input-galeri-1").value = base64String;
-            //             // console.log(document.getElementById("input-galeri-1").value); // Output the base64 string
-
-            //             const base64String = await convertToBase64(file); // Convert file to base64 with compression
-            //             document.getElementById("input-galeri-1").value = base64String;
-            //             // console.log(document.getElementById("input-galeri-1").value); // Output the base64 string
-
-            //             const img = document.getElementById('image-galeri-1');
-            //             img.src = base64String;
-            //             img.classList.add('uploaded');
-            //         } catch (error) {
-            //             console.error("Error converting file to base64:", error);
-            //         }
-            //     }
-            // });
-
-
-
-            // $('#addButton').click(function() {
-            //     if (fileCount < maxFiles) {
-            //         fileCount++;
-            //         let newInput = `<input type="file" class="form-control-file mt-2" id="galeri-${fileCount}"  accept="image/png, image/jpeg">`;
-            //         $('#fileInputs').append(newInput);
-            //         $('#removeButton').prop('disabled', false);
-
-            //         // Add event listener for the new input file
-            //         $(`#galeri-${fileCount}`).change(async function() {
-            //             const file = this.files[0]; // Get the selected file
-            //             if (file) {
-            //                 try {
-            //                     const base64String = await convertToBase64(file); // Convert file to base64 with compression
-            //                     console.log(base64String); // Output the base64 string
-
-            //                     // Create a hidden input to hold the base64 value
-            //                     let base64Input = `<input type="hidden" id="input-galeri-${fileCount}" name="galeri-${fileCount}" value="${base64String}">`;
-
-            //                     $('#fileInputs').append(base64Input);
-            //                 } catch (error) {
-            //                     console.error("Error converting file to base64:", error);
-            //                 }
-            //             }
-            //         });
-            //     }
-            //     if (fileCount === maxFiles) {
-            //         $('#addButton').prop('disabled', true);
-            //     }
-            // });
-
-            // $('#removeButton').click(function() {
-            //     if (fileCount > 1) {
-            //         $('#fileInputs input:last-child').remove();
-            //         fileCount--;
-            //         $('#addButton').prop('disabled', false);
-            //     }
-            //     if (fileCount === 1) {
-            //         $('#removeButton').prop('disabled', true);
-            //     }
-            // });
-
-            // // Disable the remove button initially since we start with one input
-            // $('#removeButton').prop('disabled', true);
-
-
-
         });
 
-
     </script>
-
-
 
 </body>
 

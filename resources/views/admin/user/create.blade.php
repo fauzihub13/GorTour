@@ -129,115 +129,54 @@
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
+
                                 <div class="card-body">
-                                    <form action="{{ route('kuliner.store') }}" method="POST">
+                                    <form action="{{ route('user.store') }}" method="POST">
                                         @csrf
                                         @method('POST')
                                         <div class="row">
                                             <!-- Detail wo -->
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="nama- ">Destinasi</label>
+                                                    <label for="nama- ">Nama Lengkap</label>
                                                     <input type="text" class="form-control" id="nama-k"
-                                                        placeholder="Masukkan nama Destinasi" name="nama_kuliner" required>
+                                                        placeholder="Masukkan nama lengkap" name="nama_lengkap" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="link-lokasi">Link Lokasi (iframe)</label>
-                                                    <input type="text" class="form-control" name="map_kuliner" id="link-lokasi"
-                                                        placeholder="Masukkan link lokasi" required>
+                                                    <label for="link-lokasi">Username</label>
+                                                    <input type="text" class="form-control" name="username" id="link-lokasi"
+                                                        placeholder="Masukkan username"   required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="lokasi-wisata">Lokasi</label>
-                                                    <textarea class="form-control" id="lokasi" name="lokasi_kuliner" rows="3" placeholder="Masukkan detail lokasi" required></textarea>
+                                                    <label for="lokasi-wisata">Email</label>
+                                                    <input type="email" class="form-control" name="email" id="link-lokasi"
+                                                        placeholder="Masukkan email"   required>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="jam-buka">Jam Buka</label>
-                                                    <textarea class="form-control" id="jam_buka" name="jam_buka" rows="3" placeholder="Masukkan jam buka" required></textarea>
+                                                    <label for="role">Role</label>
+                                                    <select name="role" class="form-control">
+                                                        <option value="0" selected >User</option>
+                                                        <option value="1" >Admin</option>
+                                                    </select>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="deskripsi">Deskripsi</label>
-                                                    <textarea class="form-control" id="deskripsi" name="deskripsi_kuliner" rows="6" placeholder="Masukkan deskripsi" required></textarea>
-                                                </div>
+
                                             </div>
                                             <!-- Deskripsi dan Gambar -->
-                                            <div class="col-md-6">
 
-                                                <div class="form-group">
-                                                    <label for="gambar">Gambar</label>
-                                                    <input type="file" class="form-control-file mb-3" id="gambar_wisata"
-                                                        accept="image/png, image/jpeg" required>
-                                                    <img class="base64-image" id="image-base64"
-                                                        src="{{ asset('assets/images/emptyImage.png') }}">
-
-                                                    <input type="hidden" name="gambar_kuliner" id="gambar_input">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="button-container">
-                                                        <label for="gallery">Galeri (Minimal 1 Gambar)</label>
-
-                                                    </div>
-
-                                                    <div class="file-inputs-container" id="fileInputs">
-                                                        <div class="mr-1 mb-1">
-                                                            <label class="upload-box" for="galeri-1">
-                                                                <img id="image-galeri-1" class="placeholder" src="" alt="Upload Image">
-                                                            </label>
-                                                            <input type="file" class="form-control-file" id="galeri-1" accept="image/png, image/jpeg" style="display:none" required>
-                                                            <input type="hidden" name="galeri-1" id="input-galeri-1">
-                                                        </div>
-                                                        <div class="mr-1 mb-1">
-                                                            <label class="upload-box" for="galeri-2">
-                                                                <img id="image-galeri-2" class="placeholder" src="" alt="Upload Image">
-                                                            </label>
-                                                            <input type="file" class="form-control-file" id="galeri-2" accept="image/png, image/jpeg" style="display:none" >
-                                                            <input type="hidden" name="galeri-2" id="input-galeri-2">
-                                                        </div>
-                                                        <div class="mr-1 mb-1">
-                                                            <label class="upload-box" for="galeri-3">
-                                                                <img id="image-galeri-3" class="placeholder" src="" alt="Upload Image">
-                                                            </label>
-                                                            <input type="file" class="form-control-file" id="galeri-3" accept="image/png, image/jpeg" style="display:none" >
-                                                            <input type="hidden" name="galeri-3" id="input-galeri-3">
-                                                        </div>
-                                                        <div class="mr-1 mb-1">
-                                                            <label class="upload-box" for="galeri-4">
-                                                                <img id="image-galeri-4" class="placeholder" src="" alt="Upload Image">
-                                                            </label>
-                                                            <input type="file" class="form-control-file" id="galeri-4" accept="image/png, image/jpeg" style="display:none" >
-                                                            <input type="hidden" name="galeri-4" id="input-galeri-4">
-                                                        </div>
-                                                        <div class="mr-1 mb-1">
-                                                            <label class="upload-box" for="galeri-5">
-                                                                <img id="image-galeri-5" class="placeholder" src="" alt="Upload Image">
-                                                            </label>
-                                                            <input type="file" class="form-control-file" id="galeri-5" accept="image/png, image/jpeg" style="display:none" >
-                                                            <input type="hidden" name="galeri-5" id="input-galeri-5">
-                                                        </div>
-                                                        <div class="mr-1 mb-1">
-                                                            <label class="upload-box" for="galeri-6">
-                                                                <img id="image-galeri-6" class="placeholder" src="" alt="Upload Image">
-                                                            </label>
-                                                            <input type="file" class="form-control-file" id="galeri-6" accept="image/png, image/jpeg" style="display:none" >
-                                                            <input type="hidden" name="galeri-6" id="input-galeri-6">
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
                                         </div>
-                                        <div class="text-center">
+                                        <div class="mt-2">
                                             <button type="submit" class="btn btn-primary btn-custom mr-2">
                                                 <i class="fas fa-save"></i> Save
                                             </button>
-                                            <button type="reset" class="btn btn-secondary btn-custom">
+                                            <a href="{{ route('user.index') }}" class="btn btn-secondary btn-custom">
                                                 <i class="fas fa-times"></i> Cancel
-                                            </button>
+                                            </a>
+
                                         </div>
                                     </form>
                                 </div>
+
                                 <!-- Bootstrap JS and dependencies (optional) -->
                             </div>
                         </div>
