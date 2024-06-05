@@ -40,35 +40,9 @@
 		<div class="site-mobile-menu-body"></div>
 	</div>
 
-	<nav class="site-nav">
-        <div class="container">
-            <div class="site-navigation">
-                <a href="{{ url('/') }}" class="logo m-0">GorTour <span class="text-primary">.</span></a>
-
-                <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
-                    <li class="active"><a href="{{ url('/') }}">Beranda</a></li>
-                    <li class="has-children">
-                        <a href="#">Destinasi</a>
-                        <ul class="dropdown">
-                          <li><a href="{{ url('/elements') }}">Destinasi Wisata</a></li>
-                          <li><a href="{{ url('/kuliner') }}">Destinasi Kuliner</a></li>
-                          <li><a href="{{ url('/kotabogor') }}">Kota Bogor</a></li>
-                          <li><a href="{{ url('/kabupatenbogor') }}">Kabupaten Bogor</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ url('/about') }}">Tentang</a></li>
-                    <li><a href="{{ url('/contact') }}">Kontak</a></li>
-                    <li><a href="{{ route('login') }}">Login</a></li>
-                </ul>
-
-                <a href="#"
-                   class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light"
-                   data-toggle="collapse" data-target="#main-navbar">
-                   <span></span>
-                </a>
-            </div>
-        </div>
-    </nav>
+	{{-- HEADER --}}
+    @include('layouts.header')
+    {{--END HEADER --}}
 
 
 

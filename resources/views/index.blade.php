@@ -47,36 +47,9 @@
         <div class="site-mobile-menu-body"></div>
     </div>
 
-    <nav class="site-nav">
-        <div class="container">
-            <div class="site-navigation">
-                <a href="{{ url('/') }}" class="logo m-0">GorTour <span class="text-primary">.</span></a>
-
-                <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
-                    <li class="active"><a href="{{ url('/') }}">Beranda</a></li>
-                    <li class="has-children">
-                        <a href="#">Destinasi</a>
-                        <ul class="dropdown">
-                            <li><a href="{{ url('/elements') }}">Destinasi Wisata</a></li>
-                            <li><a href="{{ url('/kuliner') }}">Destinasi Kuliner</a></li>
-                            <li><a href="{{ url('/kotabogor') }}">Kota Bogor</a></li>
-                            <li><a href="{{ url('/kabupatenbogor') }}">Kabupaten Bogor</a></li>
-
-                        </ul>
-                    </li>
-                    <li><a href="{{ url('/about') }}">Tentang</a></li>
-                    <li><a href="{{ url('/contact') }}">Kontak</a></li>
-                    <li><a href="{{ route('login') }}">Login</a></li>
-                </ul>
-
-                <a href="#"
-                    class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light"
-                    data-toggle="collapse" data-target="#main-navbar">
-                    <span></span>
-                </a>
-            </div>
-        </div>
-    </nav>
+    {{-- HEADER --}}
+    @include('layouts.header')
+    {{--END HEADER --}}
 
 
 
@@ -88,43 +61,7 @@
                         <h1 class="mb-5"><span class="d-block" style="text-align:start">Liburan & nikmati
                                 tempat baru di</span> di <span class="typed-words"></span></h1>
 
-                        {{-- <div class="row">
-							<div class="col-12">
-								<form class="form">
-									<div class="row mb-2">
-										<div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
-											<select name="" id="" class="form-control custom-select">
-												<option value="">Bogor</option>
-												<option value="">Kebun Raya Bogor</option>
-												<option value="">Taman Safari</option>
-												<option value="">Situ Gede</option>
-												<option value="">Mekarsari</option>
-												<option value="">Taman Riung Gunung</option>
-												<option value="">Gunung Pancar</option>
-												<option value="">Air Terjun Bidadari</option>
-											</select>
-										</div>
-										<div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-6">
-											<input type="text" class="form-control" name="daterange">
-										</div>
 
-
-									</div>
-									<div class="row align-items-center">
-										<div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
-											<input type="submit" class="btn btn-primary btn-block" value="Cari">
-										</div>
-										<div class="col-lg-8">
-											<label class="control control--checkbox mt-3">
-												<span class="caption">Simpan pencarian ini.</span>
-												<input type="checkbox" checked="checked" />
-												<div class="control__indicator"></div>
-											</label>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div> --}}
                     </div>
                 </div>
                 <div class="col-lg-5">

@@ -54,11 +54,11 @@
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="email" name="email" aria-describedby="emailHelp"
-                                                placeholder="Masukan alamat email Anda">
+                                                placeholder="Masukan alamat email Anda" required>
                                         </div>
                                         <div class="form-group mb-5">
                                             <input type="password" class="form-control form-control-user"
-                                                id="password" name="password" placeholder="Kata sandi">
+                                                id="password" name="password" placeholder="Kata sandi" required>
                                         </div>
 
                                         {{-- <a href="{{ route('wisata.index')}}" class="btn btn-primary btn-user btn-block">
@@ -74,7 +74,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="{{route ('index')}}">Kembali</a>
+                                        <a class="small" href="{{route ('index.homepage')}}">Kembali</a>
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="{{ route('register')}}">Create an Account!</a>

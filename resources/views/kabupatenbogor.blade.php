@@ -41,43 +41,16 @@
         <div class="site-mobile-menu-body"></div>
       </div>
 
-      <nav class="site-nav">
-        <div class="container">
-          <div class="site-navigation">
-            <a href="{{ url('/') }}" class="logo m-0">GorTour <span class="text-primary">.</span></a>
-
-            <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
-              <li class="active"><a href="{{ url('/') }}" class="text-white">Beranda</a></li>
-              <li class="has-children">
-                <a href="#" class="text-white">Destinasi</a>
-                <ul class="dropdown">
-                  <li><a href="{{ url('/elements') }}">Destinasi Wisata</a></li>
-                  <li><a href="{{ url('/kuliner') }}">Destinasi Kuliner</a></li>
-                  <li><a href="{{ url('/kotabogor') }}">Kota Bogor</a></li>
-                  <li><a href="{{ url('/kabupatenbogor') }}">Kabupaten Bogor</a></li>
-                </ul>
-              </li>
-              <li><a href="{{ url('/about') }}" class="text-white">Tentang</a></li>
-              <li><a href="{{ url('/contact') }}" class="text-white">Kontak</a></li>
-              <li><a href="{{ route('login') }}">Login</a></li>
-            </ul>
-
-            <a href="#"
-              class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light"
-              data-toggle="collapse" data-target="#main-navbar">
-              <span></span>
-            </a>
-          </div>
-        </div>
-      </nav>
+      {{-- HEADER --}}
+        @include('layouts.header')
+        {{--END HEADER --}}
 
     </header>
     <main>
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
