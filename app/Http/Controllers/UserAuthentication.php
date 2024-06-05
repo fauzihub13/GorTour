@@ -53,7 +53,7 @@ class UserAuthentication extends Controller
 
 
                 // echo "admin ini usernamenya: ". Session::get('username');
-                return redirect("/dashboard/wisata")->with('success', $data->message);
+                return redirect("/dashboard/wisata");
 
             } else{
                 // echo "Anda bukan Admin";

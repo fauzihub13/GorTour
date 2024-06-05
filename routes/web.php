@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WisataController;
+use App\Http\Controllers\KulinerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,12 +38,22 @@ Route::get('/register', function () {
 //         'wisata' => 'wisataId'  // Ubah parameter default
 //     ]);
 // });
+
 Route::prefix('/dashboard')->group(function () {
     Route::get('/wisata', function () {
         return view('pages.wisata.index');
     })->name('wisata.index');
     Route::resource('wisata', WisataController::class)->parameters([
         'wisata' => 'wisataId'  // Ubah parameter default
+    ]);
+});
+
+Route::prefix('/dashboard')->group(function () {
+    Route::get('/kuliner', function () {
+        return view('pages.kuliner.index');
+    })->name('kuliner.index');
+    Route::resource('kuliner', KulinerController::class)->parameters([
+        'kuliner' => 'kulinerId'  // Ubah parameter default
     ]);
 });
 
@@ -61,17 +72,17 @@ Route::prefix('/dashboard')->group(function () {
 //     return view('admin.wisata.edit');
 // })->name('wisata.edit');
 
-Route::get('/kuliner/admin', function () {
-    return view('admin.kuliner.index');
-})->name('kuliner.index');
+// Route::get('/kuliner/admin', function () {
+//     return view('admin.kuliner.index');
+// })->name('kuliner.index');
 
-Route::get('/kuliner/create', function () {
-    return view('admin.kuliner.create');
-})->name('kuliner.create');
+// Route::get('/kuliner/create', function () {
+//     return view('admin.kuliner.create');
+// })->name('kuliner.create');
 
-Route::get('/kuliner/edit', function () {
-    return view('admin.kuliner.edit');
-})->name('kuliner.edit');
+// Route::get('/kuliner/edit', function () {
+//     return view('admin.kuliner.edit');
+// })->name('kuliner.edit');
 
 // ===== END ADMIN ======
 

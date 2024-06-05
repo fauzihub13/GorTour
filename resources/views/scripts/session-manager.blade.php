@@ -2,7 +2,7 @@
 
     if (session_status() === PHP_SESSION_NONE){
         session_start();
-        echo "<script>console.log('start sesi')</script>";
+        // echo "<script>console.log('start sesi')</script>";
     }
 
     if (empty(Session::get("email"))){
@@ -14,7 +14,7 @@
     }
 
     elseif(Session::get("email")) {
-        echo "<script>console.log('udah login')</script>";
+        // echo "<script>console.log('udah login')</script>";
     }
 
 ?>
