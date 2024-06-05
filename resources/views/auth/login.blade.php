@@ -77,7 +77,7 @@
                                         <a class="small" href="{{route ('index.homepage')}}">Kembali</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('register')}}">Create an Account!</a>
+                                        <a class="small" href="{{ route('register')}}">Daftar Akun</a>
                                     </div>
                                 </div>
                             </div>
