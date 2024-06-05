@@ -129,10 +129,7 @@
                     <span>Wisata</span></a>
             </li>
 
-
-
             <hr class="sidebar-divider my-0">
-
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
@@ -143,8 +140,6 @@
 
             <hr class="sidebar-divider my-0">
 
-
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -152,9 +147,6 @@
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
-
-
 
         </ul>
         <!-- End of Sidebar -->
@@ -183,17 +175,13 @@
                                         // echo($wisataDB);
                                     }
 
-
                                     else{
                                         $wisataDB = 0;
                                     }
 
-
                                     if ($wisataDB>0){
                                         $value=$wisataDB[0];
                                         $subGaleri = ($value->galeri);
-
-
 
                                 ?>
                                 <div class="card-body">
@@ -253,17 +241,7 @@
                                                 <div class="form-group">
                                                     <div class="button-container">
                                                         <label for="gallery">Galeri (Minimal 1 Gambar)</label>
-                                                        {{-- <div class="">
-                                                            <button type="button" id="removeButton" class="btn btn-primary">-</button>
-                                                            <button type="button" id="addButton" class="btn btn-primary">+</button>
-                                                        </div> --}}
-
                                                     </div>
-                                                    {{-- <div id="fileInputs">
-                                                        <input type="file" class="form-control-file" id="galeri-1" accept="image/png, image/jpeg" required>
-                                                        <input type="hidden" name="galeri-1" id="input-galeri-1">
-                                                    </div> --}}
-
                                                     <div class="file-inputs-container" id="fileInputs">
                                                         <div class="mr-1 mb-1">
                                                             <label class="upload-box" for="galeri-1">
@@ -343,9 +321,10 @@
                                             <button type="submit" class="btn btn-primary btn-custom mr-2">
                                                 <i class="fas fa-save"></i> Save
                                             </button>
-                                            <button type="reset" class="btn btn-secondary btn-custom">
+                                            <a href="{{ route('wisata.index') }}" class="btn btn-secondary btn-custom">
                                                 <i class="fas fa-times"></i> Cancel
-                                            </button>
+                                            </a>
+
                                         </div>
                                     </form>
                                 </div>
@@ -359,10 +338,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
 
                 <!-- /.container-fluid -->
 
@@ -442,97 +417,9 @@
                 });
             }
 
-            // ===============================
-            // let maxFiles = 6;
-            // let fileCount = 1;
-
-            // $('#addButton').click(function() {
-            //     if (fileCount < maxFiles) {
-            //         fileCount++;
-            //         let newInput = `<input type="file" class="form-control-file mt-2" id="galeri-${fileCount}" name="galeri-${fileCount}" accept="image/png, image/jpeg">`;
-            //         $('#fileInputs').append(newInput);
-            //         $('#removeButton').prop('disabled', false);
-            //     }
-            //     if (fileCount === maxFiles) {
-            //         $('#addButton').prop('disabled', true);
-            //     }
-            // });
-
-            // $(`#galeri-1`).change(async function() {
-            //     const file = this.files[0]; // Get the selected file
-            //     if (file) {
-            //         try {
-            //             // const base64String = await convertToBase64(file); // Convert file to base64 with compression
-            //             // document.getElementById("input-galeri-1").value = base64String;
-            //             // console.log(document.getElementById("input-galeri-1").value); // Output the base64 string
-
-            //             const base64String = await convertToBase64(file); // Convert file to base64 with compression
-            //             document.getElementById("input-galeri-1").value = base64String;
-            //             // console.log(document.getElementById("input-galeri-1").value); // Output the base64 string
-
-            //             const img = document.getElementById('image-galeri-1');
-            //             img.src = base64String;
-            //             img.classList.add('uploaded');
-            //         } catch (error) {
-            //             console.error("Error converting file to base64:", error);
-            //         }
-            //     }
-            // });
-
-
-
-            // $('#addButton').click(function() {
-            //     if (fileCount < maxFiles) {
-            //         fileCount++;
-            //         let newInput = `<input type="file" class="form-control-file mt-2" id="galeri-${fileCount}"  accept="image/png, image/jpeg">`;
-            //         $('#fileInputs').append(newInput);
-            //         $('#removeButton').prop('disabled', false);
-
-            //         // Add event listener for the new input file
-            //         $(`#galeri-${fileCount}`).change(async function() {
-            //             const file = this.files[0]; // Get the selected file
-            //             if (file) {
-            //                 try {
-            //                     const base64String = await convertToBase64(file); // Convert file to base64 with compression
-            //                     console.log(base64String); // Output the base64 string
-
-            //                     // Create a hidden input to hold the base64 value
-            //                     let base64Input = `<input type="hidden" id="input-galeri-${fileCount}" name="galeri-${fileCount}" value="${base64String}">`;
-
-            //                     $('#fileInputs').append(base64Input);
-            //                 } catch (error) {
-            //                     console.error("Error converting file to base64:", error);
-            //                 }
-            //             }
-            //         });
-            //     }
-            //     if (fileCount === maxFiles) {
-            //         $('#addButton').prop('disabled', true);
-            //     }
-            // });
-
-            // $('#removeButton').click(function() {
-            //     if (fileCount > 1) {
-            //         $('#fileInputs input:last-child').remove();
-            //         fileCount--;
-            //         $('#addButton').prop('disabled', false);
-            //     }
-            //     if (fileCount === 1) {
-            //         $('#removeButton').prop('disabled', true);
-            //     }
-            // });
-
-            // // Disable the remove button initially since we start with one input
-            // $('#removeButton').prop('disabled', true);
-
-
-
         });
 
-
     </script>
-
-
 
 </body>
 
