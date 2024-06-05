@@ -31,6 +31,15 @@
 
             <hr class="sidebar-divider my-0">
 
+            <li class="nav-item {{ Request::is('dashboard/user*') ? 'active' : '' }}">
+                {{-- bingung euyyyy --}}
+                <a class="nav-link" href="{{ route('user.index') }}">
+                    <i class="fa fa-solid fa-user" aria-hidden="true"></i>
+                    <span>User</span></a>
+            </li>
+
+            <hr class="sidebar-divider my-0">
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
