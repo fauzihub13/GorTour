@@ -112,7 +112,7 @@
                                     data-parent="#accordion_1">
                                     <div class="accordion-body">
                                         {{ $value->lokasi_wisata }} <br><br>
-                                        {{ $value->map_wisata }}
+                                        {!! $value->map_wisata !!}
                                         {{-- <iframe
                                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12312.315117412625!2d106.79525297719881!3d-6.59962405580465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5c412a67abb%3A0x75f23c6b45a37ee5!2sKebun%20Raya%20Bogor!5e0!3m2!1sid!2sid!4v1710215392179!5m2!1sid!2sid"
                                             width="600" height="450" style="border:0;" allowfullscreen=""
