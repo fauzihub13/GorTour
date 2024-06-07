@@ -78,7 +78,7 @@ class KulinerController extends Controller
         //
         $dataKuliner = $this->readAllKuliner("?id=" . $kulinerId);
 
-        return view("detailKuliner", compact("dataKuliner"));
+        return view("detailkuliner", compact("dataKuliner"));
     }
 
     /**

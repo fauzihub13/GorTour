@@ -192,7 +192,7 @@
 		<div class="container">
 			<div class="row text-center justify-content-center-beranda mb-5">
 				<div class="col-lg-7">
-					<h2 class="section-title text-center">Popular Destination</h2>
+					<h2 class="section-title text-center">Destinasi Kuliner</h2>
 				</div>
 			</div>
 
