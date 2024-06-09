@@ -102,15 +102,15 @@
       <div class="row">
         <div class="col-lg-3 mb-4">
           <div class="team">
-            <img src="{{ asset('assets/images/person_1.jpg') }}" alt="Image" class="img-fluids mb-4 rounded-20">
+            <img src="{{ asset('assets/images/gortour/tim_fauzi.jpeg') }}" alt="Image" class="img-fluids mb-4 rounded-20">
             <div class="px-3">
-              <h3 class="mb-0">Fauzi Adi Saputra</h3>
+              <h3 style="text-align: center" class="mb-0">Fauzi Adi Saputra</h3>
             </div>
           </div>
         </div>
         <div class="col-lg-3 mb-4">
           <div class="team">
-            <img src="{{ asset('assets/images/person_3.jpg') }}" alt="Image" class="img-fluids mb-4 rounded-20">
+            <img src="{{ asset('assets/images/gortour/tim_farhan.jpeg') }}" alt="Image" class="img-fluids mb-4 rounded-20">
             <div class="px-3">
               <h3 style="text-align: center" class="mb-0">Muhammad Farhan Fahrezy</h3>
 
@@ -120,17 +120,17 @@
 
         <div class="col-lg-3 mb-4">
           <div class="team">
-            <img src="{{ asset('assets/images/person_1.jpg') }}" alt="Image" class="img-fluids mb-4 rounded-20">
+            <img src="{{ asset('assets/images/gortour/tim_budi.jpg') }}" alt="Image" class="img-fluids mb-4 rounded-20">
             <div class="px-3">
-              <h3 class="mb-0">Budy Santoso</h3>
+              <h3 style="text-align: center" class="mb-0">Budy Santoso</h3>
             </div>
           </div>
         </div>
         <div class="col-lg-3 mb-4">
           <div class="team">
-            <img src="{{ asset('assets/images/person_2.jpg') }}" alt="Image" class="img-fluids mb-4 rounded-20">
+            <img src="{{ asset('assets/images/gortour/tim_siti.jpeg') }}" alt="Image" class="img-fluids mb-4 rounded-20">
             <div class="px-3">
-              <h3 class="mb-0">Siti Farah Fakhirah</h3>
+              <h3 style="text-align: center" class="mb-0">Siti Farah Fakhirah</h3>
 
             </div>
           </div>
@@ -155,7 +155,7 @@
                 <h2 class="mb-2 text-white">Berikan Wisata Terbaikmu. Hubungi Kami</h2>
                 <p class="mb-4 lead text-white text-white-opacity">Punya rekomendasi wisata menarik di daerah Bogor?
                 </p>
-                <p class="mb-0"><a href="booking.html"
+                <p class="mb-0"><a href="{{ route('contact') }}"
                         class="btn btn-outline-white text-white btn-md font-weight-bold">Hubungi Kami</a></p>
             </div>
         </div>

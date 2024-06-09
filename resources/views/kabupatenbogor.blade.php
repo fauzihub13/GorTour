@@ -50,7 +50,7 @@
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                
+
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -217,7 +217,7 @@
                 <h2 class="mb-2 text-white">Berikan Wisata Terbaikmu. Hubungi Kami</h2>
                 <p class="mb-4 lead text-white text-white-opacity">Punya rekomendasi wisata menarik di daerah Bogor?
                 </p>
-                <p class="mb-0"><a href=""
+                <p class="mb-0"><a href="{{ route('contact') }}"
                         class="btn btn-outline-white text-white btn-md font-weight-bold">Hubungi Kami</a></p>
             </div>
         </div>

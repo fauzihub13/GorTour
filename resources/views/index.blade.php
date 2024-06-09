@@ -336,7 +336,7 @@
                 </div>
 
                 <div class="col-lg-5">
-                    <h2 class="section-title text-left mb-4">Jelajahi Lebih Jelas di Video</h2>
+                    <h2 class="section-title text-left mb-4">Jelajahi Lebih Jelas</h2>
                     <p>Situ Gede Kota Bogor merupakan destinasi wisata alam yang mengandalkan pesona situ atau telaga
                         sebagai nilai jualnya.
                         Tidak hanya itu, Situ Gede Kota Bogor juga menawarkan pemandangan alam yang asri dengan
@@ -359,7 +359,7 @@
                         <li>Kawanan Burung</li>
                     </ul>
 
-                    <p><a href="#" class="btn btn-primary">Kunjungi Wisata</a></p>
+                    <p><a href="{{ route('destinasi.wisata.index') }}" class="btn btn-primary">Kunjungi Wisata</a></p>
 
                 </div>
 
@@ -380,7 +380,7 @@
                                 <img src="{{ asset('assets/images/person_2.jpg') }}" alt="Image"
                                     class="img-fluids">
                             </figure>
-                            <h3 class="name">Adam Aderson</h3>
+                            <h3 class="name">Putri Rahmani</h3>
                             <blockquote>
                                 <p>&ldquo;Saya sangat menikmati tur kota ini! Pemandu wisata kami sangat ramah dan
                                     berpengetahuan, dan saya benar-benar suka cara
@@ -395,7 +395,7 @@
                                 <img src="{{ asset('assets/images/person_3.jpg') }}" alt="Image"
                                     class="img-fluids">
                             </figure>
-                            <h3 class="name">Lukas Devlin</h3>
+                            <h3 class="name">Putra Lubis</h3>
                             <blockquote>
                                 <p>&ldquo;Tur petualangan senja mereka sungguh mengagumkan! Melihat matahari terbenam di
                                     lokasi yang dipilih dengan baik oleh tim
@@ -410,7 +410,7 @@
                                 <img src="{{ asset('assets/images/person_4.jpg') }}" alt="Image"
                                     class="img-fluids">
                             </figure>
-                            <h3 class="name">Kayla Bryant</h3>
+                            <h3 class="name">Nisa Amanda</h3>
                             <blockquote>
                                 <p>&ldquo;Tur kuliner GorTour sungguh memuaskan lidah saya! Dari makanan
                                     jalanan hingga restoran mewah, semuanya luar
@@ -438,7 +438,7 @@
                     <p class="mb-4 lead text-white text-white-opacity">Punya rekomendasi wisata menarik di daerah
                         Bogor?
                     </p>
-                    <p class="mb-0"><a href="booking.html"
+                    <p class="mb-0"><a href="{{ route('contact') }}"
                             class="btn btn-outline-white text-white btn-md font-weight-bold">Hubungi Kami</a></p>
                 </div>
             </div>

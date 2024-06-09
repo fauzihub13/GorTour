@@ -63,24 +63,24 @@
 
 
   <div class="untree_co-section">
-    <div class="container my-5">
-      <div class="mb-5">
+    <div class="container my-3">
+      {{-- <div class="">
         <div class="owl-single dots-absolute owl-carousel">
-          <img src="{{ asset('assets/images/kebunraya.jpg') }}" alt="Free HTML Template by Untree.co" class="img-fluids">
-          <img src="{{ asset('assets/images/danau-quarry.png') }}" alt="Free HTML Template by Untree.co" class="img-fluids">
-          <img src="{{ asset('assets/images/Curug-Cibulao.jpg') }}" alt="Free HTML Template by Untree.co" class="img-fluids">
+          <img src="{{ asset('assets/images/kuliner/kuliner-1.jpg') }}" alt="Free HTML Template by Untree.co" class="img-fluids">
+          <img src="{{ asset('assets/images/kuliner/kuliner-2.jpg') }}" alt="Free HTML Template by Untree.co" class="img-fluids">
+          <img src="{{ asset('assets/images/kuliner/kuliner-3.jpg') }}" alt="Free HTML Template by Untree.co" class="img-fluids">
         </div>
-      </div>
+      </div> --}}
 
 
           {{-- NEW SECTION WISATA --}}
-      <div class="untree_co-section">
+      <div class="untree_co-section pt-0">
         <div class="container">
-          <div class="row justify-content-center-beranda text-center mb-5">
+          {{-- <div class="row justify-content-center-beranda text-center mb-5">
             <div class="col-lg-6">
               <h2 class="section-title text-center mb-3"> Destinasi Kuliner</h2>
             </div>
-          </div>
+          </div> --}}
 
           <!-- Destinasi Wisata Kota Bogor -->
 
@@ -155,10 +155,10 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-md-12">
-                <h2 class="mb-2 text-white">Berikan Wisata Terbaikmu. Hubungi Kami</h2>
-                <p class="mb-4 lead text-white text-white-opacity">Punya rekomendasi wisata menarik di daerah Bogor?
+                <h2 class="mb-2 text-white">Berikan Kuliner Terbaikmu. Hubungi Kami</h2>
+                <p class="mb-4 lead text-white text-white-opacity">Punya rekomendasi kuliner menarik di daerah Bogor?
                 </p>
-                <p class="mb-0"><a href="booking.html"
+                <p class="mb-0"><a href="{{ route('contact') }}"
                         class="btn btn-outline-white text-white btn-md font-weight-bold">Hubungi Kami</a></p>
             </div>
         </div>
