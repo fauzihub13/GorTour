@@ -86,12 +86,12 @@
                     <img class="rounded" src="{{ $value->gambar_kuliner }}" class="img-fluid">
                 </div>
 
-                <div class="mt-4">
+                {{-- <div class="mt-4">
                     <h4><b>{{ $value->nama_kuliner }}</b></h4>
-                </div>
+                </div> --}}
                 <div>
-                    <div class="accordion-body lg-8" style="font-size:25px;">
-                       {{ $value->deskripsi_kuliner }}
+                    <div class="mt-4" style="font-size:20px;">
+                       {!! $value->deskripsi_kuliner !!}
                     </div>
                 </div>
 
@@ -100,7 +100,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="custom-block" data-aos="fade-up">
-                        <h2 class="section-title">Informasi lainnya</h2>
+                        <h1 class="section-title">Informasi lainnya</h1>
                         <div class="custom-accordion" id="accordion_1">
                             <div class="accordion-item">
                                 <h2 class="mb-0">

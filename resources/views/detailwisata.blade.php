@@ -86,12 +86,12 @@
                     <img class="rounded" src="{{ $value->gambar_wisata }}" class="img-fluid">
                 </div>
 
-                <div class="mt-4">
+                {{-- <div class="mt-4">
                     <h4><b>{{ $value->nama_wisata }}</b></h4>
-                </div>
+                </div> --}}
                 <div>
-                    <div class="accordion-body lg-8" style="font-size:25px;">
-                       {{ $value->deskripsi_wisata }}
+                    <div class="mt-4" style="font-size:20px;">
+                       {!! $value->deskripsi_wisata !!}
                     </div>
                 </div>
 

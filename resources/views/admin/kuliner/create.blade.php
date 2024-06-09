@@ -166,7 +166,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="deskripsi">Deskripsi</label>
-                                                    <textarea class="form-control" id="deskripsi" name="deskripsi_kuliner" rows="6" placeholder="Masukkan deskripsi" required></textarea>
+                                                    <textarea class="form-control ckeditor" id="deskripsi" name="deskripsi_kuliner" rows="6" placeholder="Masukkan deskripsi" required></textarea>
                                                 </div>
                                             </div>
                                             <!-- Deskripsi dan Gambar -->
@@ -302,6 +302,7 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('assets/js/sb-admin-2.min.js') }}"></script>
     <script src="{{ asset('assets/js/post_create.js') }}"></script>
+    <script src="//cdn.ckeditor.com/4.22.1/basic/ckeditor.js"></script>
 
     <script>
         $(document).ready(function() {
